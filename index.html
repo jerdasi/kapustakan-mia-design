@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamelan | Kapustakan</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+    <!-- Tailwind JIT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- Independent CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body class="h-screen flex flex-col">
+    <header class="w-screen h-16">
+        <nav class="h-full flex justify-between items-center mx-12">
+            <!-- Back Navigation -->
+            <div>
+                <i class="fa-solid fa-arrow-left text-xl cursor-pointer"></i>
+            </div>
+            <!-- Logo -->
+            <div>
+                <img src="./assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
+            </div>
+        </nav>
+    </header>
+
+    <main class="grow grid grid-cols-2">
+        <div class="description-item flex flex-col justify-center py-12 px-20">
+            <h1 class="text-6xl font-bold item-title mb-8 leading-[4rem]">KANJENG KYAHI SURAK</h1>
+            <p class="item-description text-justify text-2xl leading-9 mb-8">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio atque modi dolorum eius odio obcaecati animi nam natus velit perspiciatis reiciendis totam aut eos itaque beatae deserunt, aliquam at nemo.
+            </p>
+            <div class="grow">
+                <img src="./assets/icon/pdf.svg" alt="pdf-icon" title="Download Dokumen">
+            </div>
+            <button class="w-1/2 h-fit bg-[#184D47] text-white text-xl py-2">
+                Lihat Koleksi
+            </button>
+        </div>
+        <div class="picture-item">
+            <img src="./assets/img/gamelan-1.jpg" alt="item-picture" class="w-[70%] h-full object-cover">
+        </div>
+    </main>
+</body>
+
+</html>
