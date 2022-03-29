@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamelan | Kapustakan</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+    <!-- Tailwind JIT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- Independent CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'emas-keraton': '#D7A84C',
+                        'hijau-keraton': '#184D47'
+                    },
+                    boxShadow: {
+                        'mia-style': '0px 0px 29px 10px #D7A84C'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="h-screen flex flex-col">
+    <header class="w-full h-16">
+        <nav class="h-full flex justify-between items-center mx-12">
+            <!-- Back Navigation -->
+            <div>
+                <i class="fa-solid fa-arrow-left text-xl cursor-pointer"></i>
+            </div>
+            <!-- Logo -->
+            <div>
+                <img src="./assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
+            </div>
+        </nav>
+    </header>
+
+    <main class="grow grid w-full px-12">
+        <div class="grid-sizer"></div>
+        <div class="gutter-sizer"></div>
+        <div class="grid-item relative hover:scale-110 border-4 hover:border-none hover:shadow-mia-style hover:rounded-lg border-emas-keraton rounded-lg">
+            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover rounded-lg">
+            <div class="item-description absolute w-full bottom-0 p-[4px]">
+                <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                    <h1 class="text-2xl tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-panjang.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-panjang.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-panjang.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+        <div class="grid-item border rounded-lg">
+            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
+        </div>
+
+        <!-- <div class="description-item flex flex-col justify-center py-12 px-20">
+            <h1 class="text-6xl font-bold item-title mb-8 leading-[4rem]">KANJENG KYAHI SURAK</h1>
+            <p class="item-description text-justify text-2xl leading-9 mb-8">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio atque modi dolorum eius odio obcaecati animi nam natus velit perspiciatis reiciendis totam aut eos itaque beatae deserunt, aliquam at nemo.
+            </p>
+            <div class="grow">
+                <img src="./assets/icon/pdf.svg" alt="pdf-icon" title="Download Dokumen">
+            </div>
+            <button class="w-1/2 h-fit bg-[#184D47] text-white text-xl py-2">
+                LIHAT KOLEKSI
+            </button>
+        </div>
+        <div class="picture-item">
+            <img src="./assets/img/gamelan-1.jpg" alt="item-picture" class="w-[70%] h-full object-cover">
+        </div> -->
+    </main>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
