@@ -16,6 +16,7 @@
     <!-- Independent CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
 
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -26,15 +27,23 @@
                     },
                     boxShadow: {
                         'mia-style': '0px 0px 29px 10px #D7A84C'
+                    },
+                    width: {
+                        'column-4': '22'
                     }
                 }
             }
         }
     </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities { .column-5{ width: 18.4%; margin-bottom: 2% } .column-4{ width: 22%; margin-bottom: 3%; } .column-3{ width: 30%; margin-bottom: 4%; } .column-2{ width: 45%; margin-bottom: 8%; } .column-1{ width: 100%; margin-bottom: 10%; } .picture-style{
+        width: theme('width.full'); height: theme('height.auto'); object-fit: cover; border-radius: theme('borderRadius.lg'); border-width: theme('borderWidth.4'); border-color: theme('colors.emas-keraton') } }
+    </style>
 </head>
 
-<body class="h-screen flex flex-col">
-    <header class="w-full h-16">
+<body class="h-screen flex flex-col relative">
+    <header class="w-full h-16 bg-emas-keraton">
         <nav class="h-full flex justify-between items-center mx-12">
             <!-- Back Navigation -->
             <div>
@@ -47,62 +56,96 @@
         </nav>
     </header>
 
-    <main class="grow grid w-full px-12">
-        <div class="grid-sizer"></div>
-        <div class="gutter-sizer"></div>
-        <div class="grid-item relative hover:scale-110 border-4 hover:border-none hover:shadow-mia-style hover:rounded-lg border-emas-keraton rounded-lg">
-            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover rounded-lg">
-            <div class="item-description absolute w-full bottom-0 p-[4px]">
-                <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
-                    <h1 class="text-2xl tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+    <main class="grow w-full px-12 py-8 overflow-y-scroll">
+        <div class="grid w-full">
+            <div class="grid-sizer column-1 sm:column-2 md:column-3 lg:column-4"></div>
+            <div class="gutter-sizer w-[0%] sm:w-[10%] md:w-[5%] lg:w-[4%]"></div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-panjang.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-panjang.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
+                <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="picture-style">
+                <div class="item-description absolute w-full bottom-0 hidden">
+                    <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
+                        <h1 class="text-lg tracking-widest text-center">KANJENG KYAHI SURAK</h1>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-panjang.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-panjang.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-panjang.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-2.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-        <div class="grid-item border rounded-lg">
-            <img src="./assets/img/gamelan-1.jpg" alt="gallery-item" class="w-full h-auto object-cover border-emas-keraton border-4 rounded-lg">
-        </div>
-
-        <!-- <div class="description-item flex flex-col justify-center py-12 px-20">
-            <h1 class="text-6xl font-bold item-title mb-8 leading-[4rem]">KANJENG KYAHI SURAK</h1>
-            <p class="item-description text-justify text-2xl leading-9 mb-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio atque modi dolorum eius odio obcaecati animi nam natus velit perspiciatis reiciendis totam aut eos itaque beatae deserunt, aliquam at nemo.
-            </p>
-            <div class="grow">
-                <img src="./assets/icon/pdf.svg" alt="pdf-icon" title="Download Dokumen">
-            </div>
-            <button class="w-1/2 h-fit bg-[#184D47] text-white text-xl py-2">
-                LIHAT KOLEKSI
-            </button>
-        </div>
-        <div class="picture-item">
-            <img src="./assets/img/gamelan-1.jpg" alt="item-picture" class="w-[70%] h-full object-cover">
-        </div> -->
     </main>
 
+    <footer class="w-full h-16 bg-emas-keraton text-white sticky bottom-0">
+        Ini Tempat Pagination
+    </footer>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="./assets/js/index.js"></script>
 </body>
