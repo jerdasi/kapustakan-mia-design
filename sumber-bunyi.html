@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Gamelan | Kapustakan</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+    <!-- Tailwind JIT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/accordion-mia-style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'emas-keraton': '#D7A84C',
+                        'hijau-keraton': '#184D47',
+                        'hijau-keraton-muda': '#758B76'
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="w-full">
+    <header class="w-full h-16">
+        <nav class="h-full flex justify-between items-center mx-12">
+            <!-- Back Navigation -->
+            <div>
+                <i class="fa-solid fa-arrow-left text-xl cursor-pointer"></i>
+            </div>
+            <!-- Logo -->
+            <div>
+                <img src="./assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="accordion__wrapper w-1/4">
+            <div class="accordion w-full px-3.5 py-6 relative border border-black flex">
+                <div class="h-10 w-10 bg-hijau-keraton flex items-center justify-center key-note text-white mr-3.5">w</div>
+                <div class="grow flex justify-between">
+                    <div class="bentuk w-full">
+                        <h1 class="font-bold">Bentuk</h1>
+                        <p>Pencu</p>
+                    </div>
+                    <div class="bahan w-full">
+                        <h1 class="font-bold">Bahan</h1>
+                        <p>Perunggu</p>
+                    </div>
+                    <div class="kualitas w-full">
+                        <h1 class="font-bold">Kualitas Bahan</h1>
+                        <p>Bagus</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel h-fit min-h-28 border px-3.5 py-6 text-justify">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo inventore distinctio autem, ipsum quasi aut eveniet sint. Facere, voluptatum reprehenderit illo maiores officia nam error a corrupti, repudiandae pariatur ea. Lorem ipsum dolor,
+                    sit amet consectetur adipisicing elit. Illo inventore distinctio autem, ipsum quasi aut eveniet sint. Facere, voluptatum reprehenderit illo maiores officia nam error a corrupti, repudiandae pariatur ea.Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Illo inventore distinctio autem, ipsum quasi aut eveniet sint. Facere, voluptatum reprehenderit illo maiores officia nam error a corrupti, repudiandae pariatur ea.Lorem ipsum dolor, sit amet consectetur adipisicing
+                    elit. Illo inventore distinctio autem, ipsum quasi aut eveniet sint. Facere, voluptatum reprehenderit illo maiores officia nam error a corrupti, repudiandae pariatur ea. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo
+                    inventore distinctio autem, ipsum quasi aut eveniet sint. Facere, voluptatum reprehenderit illo maiores officia nam error a corrupti, repudiandae pariatur ea.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo inventore
+                    distinctio autem, ipsum quasi aut eveniet sint. Facere, voluptatum reprehenderit illo maiores officia nam error a corrupti, repudiandae pariatur ea.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo inventore distinctio
+                    autem, ipsum quasi aut eveniet sint. Facere, voluptatum reprehenderit illo maiores officia nam error a corrupti, repudiandae pariatur ea.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo inventore distinctio autem, ipsum
+                    quasi aut eveniet sint. Facere, voluptatum reprehenderit illo maiores officia nam error a corrupti, repudiandae pariatur ea.</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
