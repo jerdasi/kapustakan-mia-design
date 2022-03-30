@@ -29,3 +29,16 @@ document.querySelectorAll('.grid-item').forEach(elemen => {
 })
 
 // border - 4 hover: border - none hover: scale - 110 hover: shadow - mia - style hover: rounded - lg border - emas - keraton rounded - lg
+
+document.querySelector(".default_option").addEventListener('click', function() {
+    document.querySelector(".select_ul").classList.toggle("hidden")
+})
+
+document.querySelectorAll(".select_ul li").forEach(elemen => {
+    elemen.addEventListener("click", function() {
+        var currentSelect = elemen.innerHTML
+
+        document.querySelector(".default_option li").innerHTML = currentSelect
+        document.querySelector(".select_ul").classList.toggle("hidden")
+    })
+})

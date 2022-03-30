@@ -16,6 +16,9 @@
     <!-- Independent CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
 
+    <!-- SelectBox CSS Mia Style -->
+    <link rel="stylesheet" href="./assets/css/select-mia-style.css">
+
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
@@ -23,7 +26,8 @@
                 extend: {
                     colors: {
                         'emas-keraton': '#D7A84C',
-                        'hijau-keraton': '#184D47'
+                        'hijau-keraton': '#184D47',
+                        'hijau-keraton-muda': '#758B76'
                     },
                     boxShadow: {
                         'mia-style': '0px 0px 29px 10px #D7A84C'
@@ -43,21 +47,57 @@
 </head>
 
 <body class="h-screen flex flex-col relative">
-    <header class="w-full h-16 bg-emas-keraton">
+    <header class="w-full h-24 p-2 border">
         <nav class="h-full flex justify-between items-center mx-12">
             <!-- Back Navigation -->
             <div>
                 <i class="fa-solid fa-arrow-left text-xl cursor-pointer"></i>
             </div>
             <!-- Logo -->
-            <div>
+            <!-- <div>
                 <img src="./assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
+            </div> -->
+            <div class="flex gap-4">
+                <div class="w-80 flex border-b border-hijau-keraton items-center m-2 px-2">
+                    <input type="text" class="w-full bg-transparent shadow-none outline-none border-none text-hijau-keraton-muda search-bar" placeholder="Apa Cari Kak?">
+                    <i class="fa-solid fa-magnifying-glass text-hijau-keraton text-xl"></i>
+                </div>
+
+                <!-- Select Box -->
+                <div class="select_wrap w-80 h-full relative border">
+                    <ul class="default_option bg-hijau-keraton relative cursor-pointer text-white">
+                        <li class="p-2">
+                            <div class="option">
+                                <p class="tracking-widest">semua gamelan</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="select_ul absolute left-0 top-10 border w-full hidden z-40 bg-white">
+                        <li class="p-2 hover:bg-hijau-keraton-muda">
+                            <div class="option all">
+                                <p class="tracking-widest">semua gamelan</p>
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-hijau-keraton-muda">
+                            <div class="option hageng">
+                                <p class="tracking-widest">hageng</p>
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-hijau-keraton-muda">
+                            <div class="option pakurmatan">
+                                <p class="tracking-widest">pakurmatan</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Select Box -->
             </div>
         </nav>
     </header>
 
-    <main class="grow w-full px-12 py-8 overflow-y-scroll">
-        <div class="grid w-full">
+    <main class="grow w-full px-12 overflow-y-scroll">
+        <div class="grid w-full py-12">
             <div class="grid-sizer column-1 sm:column-2 md:column-3 lg:column-4"></div>
             <div class="gutter-sizer w-[0%] sm:w-[10%] md:w-[5%] lg:w-[4%]"></div>
             <div class="grid-item relative column-1 sm:column-2 md:column-3 lg:column-4">
@@ -141,11 +181,18 @@
                 </div>
             </div>
         </div>
+
     </main>
 
-    <footer class="w-full h-16 bg-emas-keraton text-white sticky bottom-0">
-        Ini Tempat Pagination
-    </footer>
+    <div class="absolute bottom-5 bg-transparent flex justify-center w-full">
+        <ul class="bg-white flex">
+            <li class=" px-3 py-2 border border-emas-keraton hover:bg-emas-keraton"><i class="fa-solid fa-angle-left"></i></li>
+            <li class="bg-emas-keraton px-3 py-2 border border-emas-keraton">1</li>
+            <li class=" px-3 py-2 border border-emas-keraton hover:bg-emas-keraton">2</li>
+            <li class=" px-3 py-2 border border-emas-keraton hover:bg-emas-keraton">3</li>
+            <li class=" px-3 py-2 border border-emas-keraton hover:bg-emas-keraton"><i class="fa-solid fa-angle-right"></i></li>
+        </ul>
+    </div>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="./assets/js/index.js"></script>
 </body>
