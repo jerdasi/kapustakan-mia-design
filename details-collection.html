@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamelan | Kapustakan</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+    <!-- Tailwind JIT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- Independent CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body class="h-screen flex flex-col">
+    <header class="w-full h-16 mb-4">
+        <nav class="h-full flex justify-between items-center mx-8 md:mx-12 py-2">
+            <!-- Back Navigation -->
+            <div>
+                <a href="./index.html"><i class="fa-solid fa-arrow-left text-xl cursor-pointer"></i></a>
+            </div>
+            <!-- Logo -->
+            <div>
+                <img src="./assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
+            </div>
+        </nav>
+    </header>
+
+    <main class="grow flex flex-col-reverse md:flex-row px-8 md:px-20 md:gap-8 pb-8 md:pb-0">
+        <div class="description-item w-full flex flex-col justify-center md:py-12">
+            <h1 class="text-4xl md:text-6xl font-bold item-title mt-4 md:mt-0 mb-0 md:mb-8 leading-[4rem]">KANJENG KYAHI SURAK</h1>
+            <p class="item-description text-justify text-xl md:text-2xl leading-9 mb-4 md:mb-8">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio atque modi dolorum eius odio obcaecati animi nam natus velit perspiciatis reiciendis totam aut eos itaque beatae deserunt, aliquam at nemo.
+            </p>
+            <div class="grow my-4 md:my-0">
+                <img src="./assets/icon/pdf.svg" alt="pdf-icon" title="Download Dokumen">
+            </div>
+            <button class="w-1/2 h-fit bg-[#184D47] text-white text-xl py-2 tracking-widest">
+                <a href="./sumber-bunyi.html">LIHAT KOLEKSI</a>
+            </button>
+        </div>
+        <div class="picture-item w-full">
+            <img src="./assets/img/gamelan-1.jpg" alt="item-picture" class="w-full md:w-[70%] h-full object-cover">
+        </div>
+    </main>
+</body>
+
+</html>
