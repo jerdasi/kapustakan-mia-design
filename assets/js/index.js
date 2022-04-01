@@ -127,7 +127,7 @@ const appendToContainer = (data) => {
             percentPosition: true
         })
         initializeHover()
-    }, 250)
+    }, 500)
 }
 
 // To Fetch Data
