@@ -98,6 +98,9 @@ const initPageNumber = (total) => {
 
 // Insert to Container
 const appendToContainer = (data) => {
+    var grid = document.querySelector(".gallery-container")
+    grid.classList.toggle("opacity-0")
+    document.querySelector(".loader-container").classList.toggle("hidden")
     var elems = []
     var fragment = document.createDocumentFragment()
 
@@ -109,13 +112,12 @@ const appendToContainer = (data) => {
         let elem = document.createElement('div')
         elem.classList.add("grid-item", "relative", "column-1", "sm:column-2", "md:column-3", "lg:column-4")
         elem.innerHTML = buildCardGallery(data[i].url, data[i].nama)
-
         fragment.appendChild(elem)
         elems.push(elem)
     }
 
 
-    var grid = document.querySelector(".gallery-container")
+
     grid.appendChild(fragment)
 
     // Membentuk Layout setelah beberapa detik
@@ -127,6 +129,8 @@ const appendToContainer = (data) => {
             percentPosition: true
         })
         initializeHover()
+        document.querySelector(".loader-container").classList.toggle("hidden")
+        grid.classList.remove("opacity-0")
     }, 500)
 }
 
