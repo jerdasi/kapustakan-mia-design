@@ -3,3 +3,17 @@ body {
     font-family: 'Lora', serif;
     background-color: #F8F8F8;
 }
+
+footer ul li {
+    border: 1px solid #D7A84C;
+    cursor: pointer;
+}
+
+footer ul li:hover {
+    background-color: #D7A84C;
+}
+
+footer ul li.active {
+    background-color: #D7A84C;
+    cursor: not-allowed;
+}
