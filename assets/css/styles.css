@@ -43,3 +43,20 @@ footer ul li.active {
         transform: rotate(360deg);
     }
 }
+
+
+/* Placeholder */
+
+.search-bar::-webkit-input-placeholder {
+    /* Edge */
+    letter-spacing: 0.05em;
+}
+
+.search-bar:-ms-input-placeholder {
+    /* Internet Explorer */
+    letter-spacing: 0.05em;
+}
+
+.search-bar::placeholder {
+    letter-spacing: 0.05em;
+}

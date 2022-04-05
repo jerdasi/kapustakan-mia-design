@@ -7,7 +7,7 @@ const buildCardGallery = (src, nama) => {
     <img src="${src}" alt="gallery-item" class="picture-style">
     <div class="item-description absolute w-full bottom-0 hidden">
         <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
-            <h1 class="text-lg tracking-widest text-center">${nama}</h1>
+            <h1 class="text-lg text-center cursor-pointer"><a href="./details-collection.html">${nama.toUpperCase()}</h1></a>
         </div>
     </div>
     `
@@ -110,7 +110,7 @@ const appendToContainer = (data) => {
 
     for (let i = 0; i < data.length; i++) {
         let elem = document.createElement('div')
-        elem.classList.add("grid-item", "relative", "column-1", "sm:column-2", "md:column-3", "lg:column-4")
+        elem.classList.add("grid-item", "relative", "column-1", "sm:column-2", "md:column-3", "lg:column-4", "hover:z-50")
         elem.innerHTML = buildCardGallery(data[i].url, data[i].nama)
         fragment.appendChild(elem)
         elems.push(elem)
@@ -130,7 +130,7 @@ const appendToContainer = (data) => {
         })
         initializeHover()
         document.querySelector(".loader-container").classList.toggle("hidden")
-        grid.classList.remove("opacity-0")
+        grid.classList.toggle("opacity-0")
     }, 2500)
 }
 
@@ -188,4 +188,20 @@ document.querySelectorAll(".option").forEach(elemen => {
         let pagination = document.querySelector(".pagination-container")
         pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
     })
+})
+
+document.querySelector(".open-nav").addEventListener("click", function() {
+    document.querySelector(".nav-mobile").classList.remove("invisible")
+})
+document.querySelector(".close-nav").addEventListener("click", function() {
+    document.querySelector(".nav-mobile").classList.add("invisible")
+})
+
+document.querySelector(".btn-apply").addEventListener("click", function() {
+    document.querySelector(".nav-mobile").classList.add("scale-50")
+
+    setTimeout(function() {
+        document.querySelector(".nav-mobile").classList.add("invisible")
+        document.querySelector(".nav-mobile").classList.remove("scale-50")
+    }, 500)
 })
