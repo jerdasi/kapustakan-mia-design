@@ -5,7 +5,7 @@ let filteredData = []
 const buildCardGallery = (src, nama) => {
     return `
     <img src="${src}" alt="gallery-item" class="picture-style">
-    <div class="item-description absolute w-full bottom-0 hidden">
+    <div class="item-description absolute w-full bottom-0 block md:hidden">
         <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
             <h1 class="text-lg text-center cursor-pointer"><a href="./details-collection.html">${nama.toUpperCase()}</h1></a>
         </div>
@@ -110,7 +110,7 @@ const appendToContainer = (data) => {
 
     for (let i = 0; i < data.length; i++) {
         let elem = document.createElement('div')
-        elem.classList.add("grid-item", "relative", "column-1", "sm:column-2", "md:column-3", "lg:column-4", "hover:z-50")
+        elem.classList.add("grid-item", "relative", "column-1", "sm:column-2", "md:column-3", "lg:column-4", "hover:md:z-50")
         elem.innerHTML = buildCardGallery(data[i].url, data[i].nama)
         fragment.appendChild(elem)
         elems.push(elem)
@@ -153,16 +153,16 @@ const initializeHover = () => {
 
         let description = elemen.firstElementChild
         elemen.addEventListener('mouseenter', () => {
-            description.classList.remove('border-4', 'border-emas-keraton')
-            description.classList.add('shadow-mia-style')
-            elemen.classList.add('scale-110')
-            elemen.lastElementChild.classList.remove('hidden')
+            description.classList.remove('md:border-4', 'md:border-emas-keraton')
+            description.classList.add('md:shadow-mia-style')
+            elemen.classList.add('md:scale-110')
+            elemen.lastElementChild.classList.remove('md:hidden')
         })
         elemen.addEventListener('mouseleave', () => {
-            description.classList.add('border-4', 'border-emas-keraton')
-            description.classList.remove('shadow-mia-style')
-            elemen.classList.remove('scale-110')
-            elemen.lastElementChild.classList.add('hidden')
+            description.classList.add('md:border-4', 'md:border-emas-keraton')
+            description.classList.remove('md:shadow-mia-style')
+            elemen.classList.remove('md:scale-110')
+            elemen.lastElementChild.classList.add('md:hidden')
         })
     })
 }
