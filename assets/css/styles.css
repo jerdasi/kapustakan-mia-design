@@ -60,3 +60,19 @@ footer ul li.active {
 .search-bar::placeholder {
     letter-spacing: 0.05em;
 }
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #F4F1D2;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0F2A12;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+}
