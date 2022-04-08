@@ -56,7 +56,7 @@
                 <img src="./assets/icon/pdf.svg" alt="pdf-icon" title="Download Dokumen">
             </div>
             <button class="w-1/2 h-fit bg-hijau-keraton text-white text-md md:text-xl py-2 tracking-widest">
-                <a href="./sumber-bunyi.html">LIHAT KOLEKSI</a>
+                LIHAT KOLEKSI
             </button>
         </div>
         <div class="picture-item w-full">
@@ -67,6 +67,10 @@
 <script>
     document.querySelector("button").addEventListener("click", function() {
         document.querySelector("main").classList.add("animate__animated", "animate__fadeOutDown")
+        setTimeout(() => {
+            window.location.href = "./sumber-bunyi.html"
+        }, 1000)
     })
 </script>
+
 </html>

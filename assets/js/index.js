@@ -4,7 +4,7 @@ let filteredData = []
 // Return HTML For Build Card
 const buildCardGallery = (src, nama) => {
     return `
-    <img src="${src}" alt="gallery-item" class="picture-style">
+    <img src="${src}" alt="gallery-item" class="picture-style"/>
     <div class="item-description absolute w-full bottom-0 block md:hidden">
         <div class="bg-emas-keraton text-white font-bold h-full py-2 rounded-b-lg">
             <h1 class="text-lg text-center cursor-pointer"><a href="./details-collection.html">${nama.toUpperCase()}</h1></a>
@@ -101,7 +101,7 @@ const appendToContainer = (data) => {
     window.scrollTo(0, 0)
     var grid = document.querySelector(".gallery-container")
     grid.classList.toggle("opacity-0")
-    document.querySelector(".loader-container").classList.remove("hidden")
+    document.querySelector(".loader-container").classList.toggle("hidden")
     var elems = []
     var fragment = document.createDocumentFragment()
 
@@ -113,6 +113,9 @@ const appendToContainer = (data) => {
         let elem = document.createElement('div')
         elem.classList.add("grid-item", "relative", "column-1", "sm:column-2", "md:column-3", "lg:column-4", "hover:md:z-50")
         elem.innerHTML = buildCardGallery(data[i].url, data[i].nama)
+        elem.addEventListener("click", () => {
+            window.location.href = "./details-collection.html"
+        })
         fragment.appendChild(elem)
         elems.push(elem)
     }
@@ -168,20 +171,26 @@ const initializeHover = () => {
     })
 }
 
-document.querySelectorAll(".option").forEach(elemen => {
+const filterKategori = (tipe) => {
+    if (tipe == "all") {
+        filteredData = [...globalData]
+    } else if (tipe == "hageng") {
+        let result = [...globalData]
+        filteredData = result.filter(elemen => elemen.jenis == "hageng")
+    } else if (tipe == "pakurmatan") {
+        let result = [...globalData]
+        filteredData = result.filter(elemen => elemen.jenis == "pakurmatan")
+    }
+}
+
+// SelectBox Option
+let parentSelectBox = document.querySelector(".select_ul")
+parentSelectBox.querySelectorAll(".option").forEach(elemen => {
     elemen.parentElement.addEventListener("click", function() {
         let optionClass = Array.from(elemen.classList) //Mengubah nama nama kelas di elemen ini menjadi Array
         let tipe = optionClass.pop() //Mendapatkan tipe dengan mengambil nama kelas terakhir
 
-        if (tipe == "all") {
-            filteredData = [...globalData]
-        } else if (tipe == "hageng") {
-            let result = [...globalData]
-            filteredData = result.filter(elemen => elemen.jenis == "hageng")
-        } else if (tipe == "pakurmatan") {
-            let result = [...globalData]
-            filteredData = result.filter(elemen => elemen.jenis == "pakurmatan")
-        }
+        filterKategori(tipe)
 
         let result = paginationBuild(1, filteredData)
         console.log(filteredData)
@@ -193,16 +202,11 @@ document.querySelectorAll(".option").forEach(elemen => {
 
 
 document.querySelector(".open-nav").addEventListener("click", function() {
-    document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceOutRight")
+    document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceOutRight", "hidden")
     document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceInRight")
     setTimeout(() => {
         document.querySelector(".nav-mobile").classList.add("bg-black", "bg-opacity-75")
     }, 1000)
-
-
-
-
-    // document.querySelector(".nav-mobile").classList.remove("invisible")
 })
 document.querySelector(".close-nav").addEventListener("click", function() {
     document.querySelector(".nav-mobile").classList.remove("bg-black", "bg-opacity-75")
@@ -210,20 +214,54 @@ document.querySelector(".close-nav").addEventListener("click", function() {
         document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
         document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
     }, 500)
-
-
-
 })
 
-document.querySelectorAll(".search-bar").forEach(element => {
-    element.addEventListener("focusin", (event) => {
+
+
+document.querySelectorAll(".search-bar")[1].addEventListener("focusin", (event) => {
         let sibling = event.target.nextElementSibling
         event.target.parentElement.classList.remove("pr-4")
         sibling.classList.add("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
+        sibling.addEventListener("click", () => {
+            searchFilter(event.target.value)
+            event.target.parentElement.classList.add("pr-4")
+            sibling.classList.remove("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
+        })
     })
-    element.addEventListener("focusout", (event) => {
-        let sibling = event.target.nextElementSibling
-        event.target.parentElement.classList.add("pr-4")
-        sibling.classList.remove("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
-    })
-})
+    // document.querySelectorAll(".search-bar").forEach(element => {
+    //     element.addEventListener("focusin", (event) => {
+    //         let sibling = event.target.nextElementSibling
+    //         event.target.parentElement.classList.remove("pr-4")
+    //         sibling.classList.add("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
+    //     })
+    // })
+
+const search = (key) => {
+    filteredData = key == "" ? [...filteredData] : [...filteredData].filter(element => element.nama.toLowerCase().includes(key.toLowerCase()))
+}
+
+const searchFilter = (key) => {
+    appendToContainer([...filteredData])
+    let pagination = document.querySelector(".pagination-container")
+    pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
+}
+
+const applyFilter = (node) => {
+    let searchValue = node.querySelector(".search-bar").value
+    let optionSelectedMobile = node.querySelector(".option:checked").id
+    filterKategori(optionSelectedMobile)
+    search(searchValue)
+    appendToContainer([...filteredData])
+    let pagination = document.querySelector(".pagination-container")
+    pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
+    document.querySelector(".nav-mobile").classList.remove("bg-black", "bg-opacity-75")
+    setTimeout(() => {
+            document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
+            document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
+        }, 500)
+        // let result = search(searchValue)
+        // result = result.filter(element => element.jenis == optionSelectedMobile)
+        // appendToContainer(result)
+        // let pagination = document.querySelector(".pagination-container")
+        // pagination.replaceChild(initPageNumber(result.length), pagination.firstElementChild)
+}

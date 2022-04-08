@@ -39,26 +39,9 @@
     </script>
 
     <style type="text/tailwindcss">
-        @layer utilities { 
-        .column-5{ width: 18.4%; margin-bottom: 2% } 
-        .column-4{ width: 22%; margin-bottom: 3%; } 
-        .column-3{ width: 31.33%; margin-bottom: 2%; } 
-        .column-2{ width: 47.5%; margin-bottom: 6%; } 
-        .column-1{ width: 100%; margin-bottom: 8%; } 
-        .picture-style{
-            width: theme('width.full'); 
-            height: theme('height.auto'); 
-            object-fit: cover; 
-            border-radius: theme('borderRadius.lg'); 
-            border-width: theme('borderWidth.4'); 
-            border-color: theme('colors.emas-keraton'); 
-            cursor: pointer; 
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
-        transition-duration: 200ms; } 
-        .button-search{
-            transition: width 1s;
-        }
-        }
+        @layer utilities { .column-5{ width: 18.4%; margin-bottom: 2% } .column-4{ width: 22%; margin-bottom: 3%; } .column-3{ width: 31.33%; margin-bottom: 2%; } .column-2{ width: 47.5%; margin-bottom: 6%; } .column-1{ width: 100%; margin-bottom: 8%; } .picture-style{
+        width: theme('width.full'); height: theme('height.auto'); object-fit: cover; border-radius: theme('borderRadius.lg'); border-width: theme('borderWidth.4'); border-color: theme('colors.emas-keraton'); cursor: pointer; transition-timing-function:
+        cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 200ms; } .button-search{ transition: width 1s; } }
     </style>
 </head>
 
@@ -79,8 +62,9 @@
                     <i class="fa-solid fa-xmark"></i>
                 </span>
             </div>
+
             <div class="body-nav-mobile flex flex-col h-fit relative grow">
-                <h1 class="font-md">Pencarian Koleksi</h1>
+                <h1 class="font-md font-bold">Pencarian Koleksi</h1>
                 <div class="w-full md:w-80 flex border border-hijau-keraton items-center pl-4 pr-4">
                     <input type="text" class="w-full bg-transparent shadow-none outline-none border-none text-hijau-keraton search-bar" placeholder="Apa Cari Kak?">
                     <button class="overflow-hidden h-full w-5 flex items-center button-search justify-between text-hijau-keraton hover:text-white">
@@ -89,72 +73,73 @@
                     </button>
                 </div>
 
-                <div class="w-full border border-hijau-keraton mt-4 p-4">
-                    <h1 class="font-md">Jenis Koleksi :</h1>
-                    <ul> 
+
+                <div class="w-full mt-4 ">
+                    <h1 class="font-md font-bold">Jenis Koleksi :</h1>
+                    <ul class="border border-hijau-keraton px-4 py-2">
                         <li>
-                            <input type="checkbox" name="" id="" class="mr-2">Semua Gamelan
+                            <input type="radio" name="option" id="all" class="mr-2 option all" checked>Semua Gamelan
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="" class="mr-2">Gamelan Hageng
+                            <input type="radio" name="option" id="hageng" class="mr-2 option hageng">Gamelan Hageng
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="" class="mr-2">Gamelan Pakurmatan
+                            <input type="radio" name="option" id="pakurmatan" class="mr-2 option pakurmatan">Gamelan Pakurmatan
                         </li>
                     </ul>
                 </div>
 
-                <button class="btn-apply bg-hijau-keraton absolute bottom-0 p-2 w-full text-white rounded-lg">Terapkan</button>
+                <button class="btn-apply bg-hijau-keraton absolute bottom-0 p-2 w-full text-white rounded-lg" onclick="applyFilter(this.parentElement)">Terapkan</button>
             </div>
         </div>
     </div>
 
-    <header class="w-full">
-        <nav class="h-16 flex justify-between items-center mx-4 lg:mx-8 gap-4">
+    <header class="w-full ">
+        <nav class="h-16 flex justify-between items-center mx-4 lg:mx-8 gap-4 my-2 md:my-0 ">
             <!-- Back Navigation -->
-            <div class="w-full md:w-fit flex justify-between items-center">
-                <i class="fa-solid fa-arrow-left text-2xl cursor-pointer"></i>
-                <div class="cursor-pointer text-center block md:hidden py-1 md:py-0">
-                    <img src="./assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12 mx-auto">
-                    <h1 class="font-bold tracking-widest">KAPUSTAKAN.</h1>
+            <div class="w-full md:w-fit flex justify-between items-center ">
+                <i class="fa-solid fa-arrow-left text-2xl cursor-pointer "></i>
+                <div class="cursor-pointer text-center block md:hidden py-1 md:py-0 ">
+                    <img src="./assets/img/logo-keraton.png " alt="logo-keraton " class="w-12 h-12 mx-auto ">
+                    <h1 class="font-bold tracking-widest ">KAPUSTAKAN.</h1>
                 </div>
-                <span class="text-3xl cursor-pointer block md:hidden open-nav">
-                    <i id="menu" class="fa fa-bars"></i>
+                <span class="text-3xl cursor-pointer block md:hidden open-nav ">
+                    <i id="menu " class="fa fa-bars "></i>
                 </span>
             </div>
             <div class="hidden md:flex md:gap-4 grow md:grow-0 justify-between md:justify-start ">
-                <div class="w-1/2 md:w-80 flex border border-hijau-keraton items-center pl-4 pr-4">
-                    <input type="text" class="w-full bg-transparent shadow-none outline-none border-none text-hijau-keraton search-bar" placeholder="Apa Cari Kak?">
-                    <button class="overflow-hidden h-full w-5 flex items-center button-search justify-between text-hijau-keraton hover:text-white">
-                        <i class="fa-solid fa-magnifying-glass hover:text-white cursor-pointer text-lg"></i>
+                <div class="w-1/2 md:w-80 flex border border-hijau-keraton items-center pl-4 pr-4 ">
+                    <input type="text " class="w-full bg-transparent shadow-none outline-none border-none text-hijau-keraton search-bar " placeholder="Apa Cari Kak? ">
+                    <button class="overflow-hidden h-full w-5 flex items-center button-search justify-between text-hijau-keraton " onclick="searchFilter() ">
+                        <i class="fa-solid fa-magnifying-glass cursor-pointer text-lg "></i>
                         <p>Cari</p>
                     </button>
                 </div>
 
                 <!-- Select Box -->
-                <div class="grow select_wrap md:w-80 h-full relative border">
-                    <ul class="default_option bg-hijau-keraton relative cursor-pointer text-white">
-                        <li class="p-2">
-                            <div class="default_option">
-                                <p class="tracking-widest w-[90%] md:w-auto">semua gamelan</p>
+                <div class="grow select_wrap md:w-80 h-full relative border ">
+                    <ul class="default_option bg-hijau-keraton relative cursor-pointer text-white ">
+                        <li class="p-2 ">
+                            <div class="default_option ">
+                                <p class="tracking-widest w-[90%] md:w-auto ">semua gamelan</p>
                             </div>
                         </li>
                     </ul>
 
-                    <ul class="select_ul absolute left-0 top-10 border w-full hidden z-40 bg-white">
-                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
-                            <div class="option all">
-                                <p class="tracking-widest">semua gamelan</p>
+                    <ul class="select_ul absolute left-0 top-10 border w-full hidden z-40 bg-white ">
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer ">
+                            <div class="option all ">
+                                <p class="tracking-widest ">semua gamelan</p>
                             </div>
                         </li>
-                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
-                            <div class="option hageng">
-                                <p class="tracking-widest">hageng</p>
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer ">
+                            <div class="option hageng ">
+                                <p class="tracking-widest ">hageng</p>
                             </div>
                         </li>
-                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
-                            <div class="option pakurmatan">
-                                <p class="tracking-widest">pakurmatan</p>
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer ">
+                            <div class="option pakurmatan ">
+                                <p class="tracking-widest ">pakurmatan</p>
                             </div>
                         </li>
                     </ul>
@@ -164,20 +149,20 @@
         </nav>
     </header>
 
-    <main class="grow w-full px-4 lg:px-8 md:overflow-y-scroll">
-        <div class="grid w-full md:py-12 gallery-container">
-            <div class="grid-sizer column-1 sm:column-2 md:column-3 lg:column-4"></div>
-            <div class="gutter-sizer w-[0%] sm:w-[5%] md:w-[3%] lg:w-[4%]"></div>
+    <main class="grow w-full px-4 lg:px-8 md:overflow-y-scroll ">
+        <div class="grid w-full pt-6 md:py-12 gallery-container ">
+            <div class="grid-sizer column-1 sm:column-2 md:column-3 lg:column-4 "></div>
+            <div class="gutter-sizer w-[0%] sm:w-[5%] md:w-[3%] lg:w-[4%] "></div>
         </div>
     </main>
 
-    <footer class="static md:absolute md:bottom-5 bg-transparent flex justify-center w-full py-2 md:py-0 pagination-container">
+    <footer class="static md:absolute md:bottom-5 bg-transparent flex justify-center w-full py-2 md:py-0 pagination-container ">
     </footer>
 
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="./assets/js/select-box.js"></script>
-    <script src="./assets/js/pagination.js"></script>
-    <script src="./assets/js/index.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js "></script>
+    <script src="./assets/js/select-box.js "></script>
+    <script src="./assets/js/pagination.js "></script>
+    <script src="./assets/js/index.js "></script>
 
 </body>
 
