@@ -98,6 +98,7 @@ const initPageNumber = (total) => {
 
 // Insert to Container
 const appendToContainer = (data) => {
+    // window.scrollTo(0, 0)
     var grid = document.querySelector(".gallery-container")
     grid.classList.toggle("opacity-0")
     document.querySelector(".loader-container").classList.toggle("hidden")
@@ -194,12 +195,24 @@ document.querySelectorAll(".option").forEach(elemen => {
 document.querySelector(".open-nav").addEventListener("click", function() {
     document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceOutRight")
     document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceInRight")
+    setTimeout(() => {
+        document.querySelector(".nav-mobile").classList.add("bg-black", "bg-opacity-75")
+    }, 1000)
+
+
+
 
     // document.querySelector(".nav-mobile").classList.remove("invisible")
 })
 document.querySelector(".close-nav").addEventListener("click", function() {
-    document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
-    document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
+    document.querySelector(".nav-mobile").classList.remove("bg-black", "bg-opacity-75")
+    setTimeout(() => {
+        document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
+        document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
+    }, 500)
+
+
+
 })
 
 document.querySelectorAll(".search-bar").forEach(element => {
