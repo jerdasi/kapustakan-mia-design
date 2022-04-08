@@ -98,6 +98,7 @@ const initPageNumber = (total) => {
 
 // Insert to Container
 const appendToContainer = (data) => {
+    window.scrollTo(0, 0)
     var grid = document.querySelector(".gallery-container")
     grid.classList.toggle("opacity-0")
     document.querySelector(".loader-container").classList.remove("hidden")
