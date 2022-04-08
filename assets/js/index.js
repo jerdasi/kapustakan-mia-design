@@ -153,13 +153,13 @@ const initializeHover = () => {
 
         let description = elemen.firstElementChild
         elemen.addEventListener('mouseenter', () => {
-            description.classList.remove('md:border-4', 'md:border-emas-keraton')
+            description.classList.add('md:border-0', 'md:border-emas-keraton')
             description.classList.add('md:shadow-mia-style')
             elemen.classList.add('md:scale-110')
             elemen.lastElementChild.classList.remove('md:hidden')
         })
         elemen.addEventListener('mouseleave', () => {
-            description.classList.add('md:border-4', 'md:border-emas-keraton')
+            description.classList.remove('md:border-0', 'md:border-emas-keraton')
             description.classList.remove('md:shadow-mia-style')
             elemen.classList.remove('md:scale-110')
             elemen.lastElementChild.classList.add('md:hidden')
@@ -190,18 +190,30 @@ document.querySelectorAll(".option").forEach(elemen => {
     })
 })
 
+
 document.querySelector(".open-nav").addEventListener("click", function() {
     document.querySelector(".nav-mobile").classList.remove("invisible")
 })
 document.querySelector(".close-nav").addEventListener("click", function() {
     document.querySelector(".nav-mobile").classList.add("invisible")
 })
-
 document.querySelector(".btn-apply").addEventListener("click", function() {
     document.querySelector(".nav-mobile").classList.add("scale-50")
-
     setTimeout(function() {
         document.querySelector(".nav-mobile").classList.add("invisible")
         document.querySelector(".nav-mobile").classList.remove("scale-50")
     }, 500)
+})
+
+document.querySelectorAll(".search-bar").forEach(element => {
+    element.addEventListener("focusin", (event) => {
+        let sibling = event.target.nextElementSibling
+        event.target.parentElement.classList.remove("pr-4")
+        sibling.classList.add("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
+    })
+    element.addEventListener("focusout", (event) => {
+        let sibling = event.target.nextElementSibling
+        event.target.parentElement.classList.add("pr-4")
+        sibling.classList.remove("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
+    })
 })

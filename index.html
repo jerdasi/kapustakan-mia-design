@@ -19,6 +19,8 @@
     <!-- SelectBox CSS Mia Style -->
     <link rel="stylesheet" href="./assets/css/select-mia-style.css">
 
+    <link rel="stylesheet" href="./assets/vendor/animate.min.css">
+
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
@@ -31,18 +33,32 @@
                     boxShadow: {
                         'mia-style': '0px 0px 29px 10px #D7A84C'
                     },
-                    // width: {
-                    //     'column-4': '22'
-                    // }
                 }
             }
         }
     </script>
 
     <style type="text/tailwindcss">
-        @layer utilities { .column-5{ width: 18.4%; margin-bottom: 2% } .column-4{ width: 22%; margin-bottom: 3%; } .column-3{ width: 31.33%; margin-bottom: 2%; } .column-2{ width: 47.5%; margin-bottom: 6%; } .column-1{ width: 100%; margin-bottom: 8%; } .picture-style{
-        width: theme('width.full'); height: theme('height.auto'); object-fit: cover; border-radius: theme('borderRadius.lg'); border-width: theme('borderWidth.4'); border-color: theme('colors.emas-keraton'); cursor: pointer; transition-timing-function:
-        cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 200ms; } }
+        @layer utilities { 
+        .column-5{ width: 18.4%; margin-bottom: 2% } 
+        .column-4{ width: 22%; margin-bottom: 3%; } 
+        .column-3{ width: 31.33%; margin-bottom: 2%; } 
+        .column-2{ width: 47.5%; margin-bottom: 6%; } 
+        .column-1{ width: 100%; margin-bottom: 8%; } 
+        .picture-style{
+            width: theme('width.full'); 
+            height: theme('height.auto'); 
+            object-fit: cover; 
+            border-radius: theme('borderRadius.lg'); 
+            border-width: theme('borderWidth.4'); 
+            border-color: theme('colors.emas-keraton'); 
+            cursor: pointer; 
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+        transition-duration: 200ms; } 
+        .button-search{
+            transition: width 1s;
+        }
+        }
     </style>
 </head>
 
@@ -89,7 +105,7 @@
     </div>
 
     <header class="w-full">
-        <nav class="h-16 flex justify-between items-center mx-4 lg:mx-8 gap-4">
+        <nav class="h-16 flex justify-between items-center mx-4 lg:mx-8 gap-4 border">
             <!-- Back Navigation -->
             <div class="w-full md:w-fit flex justify-between items-center">
                 <i class="fa-solid fa-arrow-left text-2xl cursor-pointer"></i>
@@ -101,14 +117,13 @@
                     <i id="menu" class="fa fa-bars"></i>
                 </span>
             </div>
-            <!-- Logo -->
-            <!-- <div>
-                <img src="./assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
-            </div> -->
             <div class="hidden md:flex md:gap-4 grow md:grow-0 justify-between md:justify-start ">
-                <div class="w-1/2 md:w-80 flex border-b border-hijau-keraton items-center m-2 px-2">
+                <div class="w-1/2 md:w-80 flex border border-hijau-keraton items-center pl-4 pr-4">
                     <input type="text" class="w-full bg-transparent shadow-none outline-none border-none text-hijau-keraton search-bar" placeholder="Apa Cari Kak?">
-                    <i class="fa-solid fa-magnifying-glass text-hijau-keraton text-xl"></i>
+                    <button class="overflow-hidden h-full w-5 flex items-center button-search justify-between text-hijau-keraton hover:text-white">
+                        <i class="fa-solid fa-magnifying-glass hover:text-white cursor-pointer text-lg"></i>
+                        <p>Cari</p>
+                    </button>
                 </div>
 
                 <!-- Select Box -->
@@ -149,7 +164,6 @@
             <div class="grid-sizer column-1 sm:column-2 md:column-3 lg:column-4"></div>
             <div class="gutter-sizer w-[0%] sm:w-[5%] md:w-[3%] lg:w-[4%]"></div>
         </div>
-
     </main>
 
     <footer class="absolute bottom-5 bg-transparent flex justify-center w-full pagination-container">
