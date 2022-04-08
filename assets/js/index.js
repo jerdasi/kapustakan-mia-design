@@ -192,17 +192,14 @@ document.querySelectorAll(".option").forEach(elemen => {
 
 
 document.querySelector(".open-nav").addEventListener("click", function() {
-    document.querySelector(".nav-mobile").classList.remove("invisible")
+    document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceOutRight")
+    document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceInRight")
+
+    // document.querySelector(".nav-mobile").classList.remove("invisible")
 })
 document.querySelector(".close-nav").addEventListener("click", function() {
-    document.querySelector(".nav-mobile").classList.add("invisible")
-})
-document.querySelector(".btn-apply").addEventListener("click", function() {
-    document.querySelector(".nav-mobile").classList.add("scale-50")
-    setTimeout(function() {
-        document.querySelector(".nav-mobile").classList.add("invisible")
-        document.querySelector(".nav-mobile").classList.remove("scale-50")
-    }, 500)
+    document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
+    document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
 })
 
 document.querySelectorAll(".search-bar").forEach(element => {

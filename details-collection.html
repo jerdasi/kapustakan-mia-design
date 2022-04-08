@@ -16,6 +16,8 @@
     <!-- Independent CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
 
+    <link rel="stylesheet" href="./assets/vendor/animate.min.css">
+
     <script>
         tailwind.config = {
             theme: {
@@ -30,7 +32,7 @@
     </script>
 </head>
 
-<body class="h-screen flex flex-col">
+<body class="h-screen flex flex-col overflow-hidden">
     <header class="w-full">
         <nav class="h-16 flex justify-between items-center mx-4 lg:mx-8 gap-4">
             <!-- Back Navigation -->
@@ -44,7 +46,7 @@
         </nav>
     </header>
 
-    <main class="grow flex flex-col-reverse md:flex-row px-0 md:px-20 md:gap-8 pb-8 md:pb-0">
+    <main class="grow flex flex-col-reverse md:flex-row px-0 md:px-20 md:gap-8 pb-8 md:pb-0 animate__animated animate__fadeInLeft">
         <div class="description-item w-full flex flex-col justify-center px-8 lg:px-12 md:py-12">
             <h1 class="text-4xl md:text-6xl font-bold item-title mt-4 md:mt-0 mb-4 md:mb-8 md:leading-[4rem]">KANJENG KYAHI SURAK</h1>
             <p class="item-description text-justify text-lg md:text-2xl md:leading-9 mb-4 md:mb-8">
@@ -62,5 +64,9 @@
         </div>
     </main>
 </body>
-
+<script>
+    document.querySelector("button").addEventListener("click", function() {
+        document.querySelector("main").classList.add("animate__animated", "animate__fadeOutDown")
+    })
+</script>
 </html>
