@@ -1,5 +1,9 @@
 let globalData = []
 let filteredData = []
+let searchValue = ""
+let filterValue = "all"
+var grid = document.querySelector(".gallery-container")
+let loader = document.querySelector(".loader-container")
 
 // Return HTML For Build Card
 const buildCardGallery = (src, nama) => {
@@ -24,7 +28,8 @@ const toLeft = () => {
         }
         active.classList.toggle("active")
         active.previousSibling.classList.add("active")
-        appendToContainer(paginationBuild(parseInt(active.innerText) - 1, [...filteredData]))
+        paginationBuild(parseInt(active.innerText) - 1)
+        appendToContainer([...filteredData])
     } else {
         document.querySelector(".to-left").classList.remove("cursor-not-allowed")
     }
@@ -42,7 +47,8 @@ const toRight = () => {
         }
         active.classList.toggle("active")
         active.nextSibling.classList.add("active")
-        appendToContainer(paginationBuild(parseInt(active.innerText) + 1, [...filteredData]))
+        paginationBuild(parseInt(active.innerText) + 1)
+        appendToContainer([...filteredData])
     } else {
         document.querySelector(".to-right").classList.remove("cursor-not-allowed")
     }
@@ -91,23 +97,18 @@ const initPageNumber = (total) => {
         menu.insertAdjacentElement("beforeend", list)
     }
     batasAkhir == 1 ? menu.insertAdjacentHTML("beforeend", `<li class="px-3 py-2 to-right cursor-not-allowed" onclick="toRight()"><i class="fa-solid fa-angle-right"></i></li>`) : menu.insertAdjacentHTML("beforeend", `<li class="px-3 py-2 to-right" onclick="toRight()"><i class="fa-solid fa-angle-right"></i></li>`)
-
-
     return menu
 }
 
 // Insert to Container
 const appendToContainer = (data) => {
     window.scrollTo(0, 0)
-    var grid = document.querySelector(".gallery-container")
-    grid.classList.toggle("opacity-0")
-    document.querySelector(".loader-container").classList.toggle("hidden")
+    loader.classList.remove("hidden")
+    grid.classList.add("opacity-0")
     var elems = []
     var fragment = document.createDocumentFragment()
-
-    let container = document.querySelector(".gallery-container")
-        // Iniatilize New Gallery
-    let allGridItem = document.querySelectorAll(".grid-item").forEach(element => element.remove())
+    // Iniatilize New Gallery
+    document.querySelectorAll(".grid-item").forEach(element => element.remove())
 
     for (let i = 0; i < data.length; i++) {
         let elem = document.createElement('div')
@@ -119,9 +120,6 @@ const appendToContainer = (data) => {
         fragment.appendChild(elem)
         elems.push(elem)
     }
-
-
-
     grid.appendChild(fragment)
 
     // Membentuk Layout setelah beberapa detik
@@ -133,8 +131,8 @@ const appendToContainer = (data) => {
             percentPosition: true
         })
         initializeHover()
-        document.querySelector(".loader-container").classList.toggle("hidden")
-        grid.classList.toggle("opacity-0")
+        loader.classList.add("hidden")
+        grid.classList.remove("opacity-0")
     }, 2500)
 }
 
@@ -146,7 +144,6 @@ fetch('./_data/gamelan.json').then(response => {
     appendToContainer(result)
     globalData = [...data]
     filteredData = [...data]
-
     let pagination = document.querySelector(".pagination-container")
     pagination.appendChild(initPageNumber(data.length))
 })
@@ -154,7 +151,6 @@ fetch('./_data/gamelan.json').then(response => {
 // Iniatialize Hover in Card
 const initializeHover = () => {
     document.querySelectorAll('.grid-item').forEach(elemen => {
-
         let description = elemen.firstElementChild
         elemen.addEventListener('mouseenter', () => {
             description.classList.add('md:border-0', 'md:border-emas-keraton')
@@ -171,6 +167,7 @@ const initializeHover = () => {
     })
 }
 
+// Filter Collection By Tipe
 const filterKategori = (tipe) => {
     if (tipe == "all") {
         filteredData = [...globalData]
@@ -189,9 +186,7 @@ parentSelectBox.querySelectorAll(".option").forEach(elemen => {
     elemen.parentElement.addEventListener("click", function() {
         let optionClass = Array.from(elemen.classList) //Mengubah nama nama kelas di elemen ini menjadi Array
         let tipe = optionClass.pop() //Mendapatkan tipe dengan mengambil nama kelas terakhir
-
         filterKategori(tipe)
-
         let result = paginationBuild(1, filteredData)
         console.log(filteredData)
         appendToContainer(result)
@@ -212,49 +207,47 @@ document.querySelector(".close-nav").addEventListener("click", function() {
     document.querySelector(".nav-mobile").classList.remove("bg-black", "bg-opacity-75")
     setTimeout(() => {
         document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
-        document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
+        document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight", "hidden")
     }, 500)
 })
 
 
-
-document.querySelectorAll(".search-bar")[1].addEventListener("focusin", (event) => {
-        let sibling = event.target.nextElementSibling
-        event.target.parentElement.classList.remove("pr-4")
-        sibling.classList.add("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
-        sibling.addEventListener("click", () => {
-            searchFilter(event.target.value)
-            event.target.parentElement.classList.add("pr-4")
-            sibling.classList.remove("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
-        })
+let searchBarWebsite = document.querySelectorAll(".search-bar")[1]
+searchBarWebsite.addEventListener("focusin", (event) => {
+    let sibling = event.target.nextElementSibling
+    event.target.parentElement.classList.remove("pr-4")
+    sibling.classList.add("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
+    sibling.addEventListener("click", () => {
+        searchFilter(event.target.value)
+        event.target.parentElement.classList.add("pr-4")
+        sibling.classList.remove("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
     })
-    // document.querySelectorAll(".search-bar").forEach(element => {
-    //     element.addEventListener("focusin", (event) => {
-    //         let sibling = event.target.nextElementSibling
-    //         event.target.parentElement.classList.remove("pr-4")
-    //         sibling.classList.add("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
-    //     })
-    // })
+})
 
 const search = (key) => {
     filteredData = key == "" ? [...filteredData] : [...filteredData].filter(element => element.nama.toLowerCase().includes(key.toLowerCase()))
 }
 
+// Function Search Collection
 const searchFilter = (key) => {
+    // grid.classList.add("opacity-0")
+    // document.querySelector(".loader-container").classList.add("hidden")
+    search(key); 
     appendToContainer([...filteredData])
     let pagination = document.querySelector(".pagination-container")
     pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
 }
 
 const applyFilter = (node) => {
-    let searchValue = node.querySelector(".search-bar").value
+    let searchValue = node.querySelector(".search-bar")
     let optionSelectedMobile = node.querySelector(".option:checked").id
     filterKategori(optionSelectedMobile)
-    search(searchValue)
+    search(searchValue.value)
     appendToContainer([...filteredData])
     let pagination = document.querySelector(".pagination-container")
     pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
     document.querySelector(".nav-mobile").classList.remove("bg-black", "bg-opacity-75")
+    searchBarWebsite.value = searchValue.value
     setTimeout(() => {
             document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
             document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
