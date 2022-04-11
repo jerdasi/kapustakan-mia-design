@@ -5,8 +5,11 @@ let filterValue = "all"
 var grid = document.querySelector(".gallery-container")
 let loader = document.querySelector(".loader-container")
 let toolsWebVersion = document.querySelector(".tools")
+let toolsMobileVersion = document.querySelector(".nav-mobile")
 let pagination = document.querySelector(".pagination-container")
 let infoPagination = document.querySelector(".info-pagination")
+let openMobileNav = document.querySelector(".open-nav")
+let closeMobileNav = document.querySelector(".close-nav")
 
 // Return HTML For Build Card
 const buildCardGallery = (src, nama) => {
@@ -208,7 +211,7 @@ parentSelectBox.querySelectorAll(".option").forEach(elemen => {
     })
 })
 
-
+// Web Version
 toolsWebVersion.querySelector("button").addEventListener("click", function() {
     let searchBarValue = toolsWebVersion.querySelector(".search-bar").value
     let result = searchCollection(searchBarValue, [...globalData])
@@ -231,18 +234,21 @@ toolsWebVersion.querySelector("button").addEventListener("click", function() {
 // })
 
 
-document.querySelector(".open-nav").addEventListener("click", function() {
-    document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceOutRight", "hidden")
-    document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceInRight")
+openMobileNav.addEventListener("click", function() {
+    toolsMobileVersion.classList.remove("animate__animated", "animate__bounceOutRight", "hidden")
+    toolsMobileVersion.classList.add("animate__animated", "animate__bounceInRight")
     setTimeout(() => {
-        document.querySelector(".nav-mobile").classList.add("bg-black", "bg-opacity-75")
+        toolsMobileVersion.classList.add("bg-black", "bg-opacity-75")
     }, 1000)
 })
-document.querySelector(".close-nav").addEventListener("click", function() {
-    document.querySelector(".nav-mobile").classList.remove("bg-black", "bg-opacity-75")
+closeMobileNav.addEventListener("click", function() {
+    toolsMobileVersion.classList.remove("bg-black", "bg-opacity-75")
     setTimeout(() => {
-        document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
-        document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight", "hidden")
+        toolsMobileVersion.classList.remove("animate__animated", "animate__bounceInRight")
+        toolsMobileVersion.classList.add("animate__animated", "animate__bounceOutRight")
+        setTimeout(() => {
+            toolsMobileVersion.classList.add("hidden")
+        }, 300)
     }, 500)
 })
 
@@ -250,35 +256,45 @@ document.querySelector(".close-nav").addEventListener("click", function() {
 
 
 const searchCollection = (key, data) => {
-    let result = key == ""? [...data] : [...data].filter(element => element.nama.toLowerCase().includes(key.toLowerCase()))
+    let result = key == ""? [...data] : [...data].filter(element => element.nama.toLowerCase().includes(key.toString().toLowerCase()))
     // filteredData = key == "" ? [...filteredData] : [...filteredData].filter(element => element.nama.toLowerCase().includes(key.toLowerCase()))
     return result
 }
 
 // Function Search Collection
-const searchFilter = (key) => {
-    // grid.classList.add("opacity-0")
-    // document.querySelector(".loader-container").classList.add("hidden")
-    searchCollection(key); 
-    appendToContainer([...filteredData])
-    let pagination = document.querySelector(".pagination-container")
-    pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
-}
+// const searchFilter = (key) => {
+//     // grid.classList.add("opacity-0")
+//     // document.querySelector(".loader-container").classList.add("hidden")
+//     searchCollection(key); 
+//     appendToContainer([...filteredData])
+//     let pagination = document.querySelector(".pagination-container")
+//     pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
+// }
 
+// Mobile Version
 const applyFilter = (node) => {
-    let searchValue = node.querySelector(".search-bar")
-    let optionSelectedMobile = node.querySelector(".option:checked").id
-    filterKategori(optionSelectedMobile)
-    search(searchValue.value)
-    appendToContainer([...filteredData])
-    let pagination = document.querySelector(".pagination-container")
-    pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
-    document.querySelector(".nav-mobile").classList.remove("bg-black", "bg-opacity-75")
-    searchBarWebsite.value = searchValue.value
-    setTimeout(() => {
-            document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
-            document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
-        }, 500)
+    let searchValue = toolsMobileVersion.querySelector(".search-bar").value
+    let filterValue = toolsMobileVersion.querySelector(".option:checked").id
+    // console.log(optionSelected)
+    let result = searchCollection(searchValue, [...globalData])
+    result = filterKategori(filterValue, result)
+    infoPagination.innerText = `${searchValue == ""? "": `${searchValue} dari `} ${filterValue == "all"? "semua kategori": `kategori ${filterValue}`}`
+    console.log(result)
+    appendToContainer(result)
+    pagination.replaceChild(initPageNumber(result.length), pagination.firstElementChild)
+    closeMobileNav.click()
+
+    // filterKategori(optionSelectedMobile)
+    // search(searchValue.value)
+    // appendToContainer([...filteredData])
+    // let pagination = document.querySelector(".pagination-container")
+    // pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
+    // document.querySelector(".nav-mobile").classList.remove("bg-black", "bg-opacity-75")
+    // searchBarWebsite.value = searchValue.value
+    // setTimeout(() => {
+    //         document.querySelector(".nav-mobile").classList.remove("animate__animated", "animate__bounceInRight")
+    //         document.querySelector(".nav-mobile").classList.add("animate__animated", "animate__bounceOutRight")
+    //     }, 500)
         // let result = search(searchValue)
         // result = result.filter(element => element.jenis == optionSelectedMobile)
         // appendToContainer(result)
