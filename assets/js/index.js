@@ -4,6 +4,7 @@ let searchValue = ""
 let filterValue = "all"
 var grid = document.querySelector(".gallery-container")
 let loader = document.querySelector(".loader-container")
+let toolsWebVersion = document.querySelector(".tools")
 
 // Return HTML For Build Card
 const buildCardGallery = (src, nama) => {
@@ -28,8 +29,8 @@ const toLeft = () => {
         }
         active.classList.toggle("active")
         active.previousSibling.classList.add("active")
-        paginationBuild(parseInt(active.innerText) - 1)
-        appendToContainer([...filteredData])
+        let result = paginationBuild(parseInt(active.innerText) - 1, [...filteredData])
+        appendToContainer(result)
     } else {
         document.querySelector(".to-left").classList.remove("cursor-not-allowed")
     }
@@ -47,8 +48,8 @@ const toRight = () => {
         }
         active.classList.toggle("active")
         active.nextSibling.classList.add("active")
-        paginationBuild(parseInt(active.innerText) + 1)
-        appendToContainer([...filteredData])
+        let result = paginationBuild(parseInt(active.innerText) + 1, [...filteredData])
+        appendToContainer(result)
     } else {
         document.querySelector(".to-right").classList.remove("cursor-not-allowed")
     }
@@ -133,7 +134,7 @@ const appendToContainer = (data) => {
         initializeHover()
         loader.classList.add("hidden")
         grid.classList.remove("opacity-0")
-    }, 2500)
+    }, 500)
 }
 
 // To Fetch Data

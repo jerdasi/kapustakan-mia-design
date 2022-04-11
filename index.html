@@ -107,13 +107,10 @@
                     <i id="menu " class="fa fa-bars "></i>
                 </span>
             </div>
-            <div class="hidden md:flex md:gap-4 grow md:grow-0 justify-between md:justify-start ">
+            <div class="hidden md:flex md:gap-4 grow md:grow-0 justify-between md:justify-start tools">
                 <div class="w-1/2 md:w-80 flex border border-hijau-keraton items-center pl-4 pr-4 ">
                     <input type="text " class="w-full bg-transparent shadow-none outline-none border-none text-hijau-keraton search-bar " placeholder="Apa Cari Kak? ">
-                    <button class="overflow-hidden h-full w-5 flex items-center button-search justify-between text-hijau-keraton " onclick="searchFilter() ">
-                        <i class="fa-solid fa-magnifying-glass cursor-pointer text-lg "></i>
-                        <p>Cari</p>
-                    </button>
+                    <i class="fa-solid fa-magnifying-glass cursor-pointer"></i>
                 </div>
 
                 <!-- Select Box -->
@@ -145,6 +142,14 @@
                     </ul>
                 </div>
                 <!-- End Select Box -->
+
+                <button class="bg-hijau-keraton text-white px-4">
+                    <span><i class="fa-solid fa-magnifying-glass cursor-pointer mr-2"></i></span>cari
+                </button>
+                <!-- <button class="w-fit button-search justify-between text-hijau-keraton border bg-hijau-keraton" onclick="searchFilter() ">
+                    
+                    <p>Cari</p>
+                </button> -->
             </div>
         </nav>
     </header>
