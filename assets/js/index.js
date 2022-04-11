@@ -139,7 +139,7 @@ const appendToContainer = (data) => {
         initializeHover()
         loader.classList.add("hidden")
         grid.classList.remove("opacity-0")
-    }, 500)
+    }, 1000)
 }
 
 // To Fetch Data
