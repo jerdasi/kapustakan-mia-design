@@ -5,6 +5,8 @@ let filterValue = "all"
 var grid = document.querySelector(".gallery-container")
 let loader = document.querySelector(".loader-container")
 let toolsWebVersion = document.querySelector(".tools")
+let pagination = document.querySelector(".pagination-container")
+let infoPagination = document.querySelector(".info-pagination")
 
 // Return HTML For Build Card
 const buildCardGallery = (src, nama) => {
@@ -169,32 +171,64 @@ const initializeHover = () => {
 }
 
 // Filter Collection By Tipe
-const filterKategori = (tipe) => {
+const filterKategori = (tipe, data) => {
+    let result = [...data]
     if (tipe == "all") {
-        filteredData = [...globalData]
+        return result
     } else if (tipe == "hageng") {
-        let result = [...globalData]
-        filteredData = result.filter(elemen => elemen.jenis == "hageng")
+        return result.filter(elemen => elemen.jenis == "hageng")
     } else if (tipe == "pakurmatan") {
-        let result = [...globalData]
-        filteredData = result.filter(elemen => elemen.jenis == "pakurmatan")
+        return result.filter(elemen => elemen.jenis == "pakurmatan")
     }
 }
+// const filterKategori = (tipe) => {
+//     if (tipe == "all") {
+//         filteredData = [...globalData]
+//     } else if (tipe == "hageng") {
+//         let result = [...globalData]
+//         filteredData = result.filter(elemen => elemen.jenis == "hageng")
+//     } else if (tipe == "pakurmatan") {
+//         let result = [...globalData]
+//         filteredData = result.filter(elemen => elemen.jenis == "pakurmatan")
+//     }
+// }
 
 // SelectBox Option
-let parentSelectBox = document.querySelector(".select_ul")
+let parentSelectBox = toolsWebVersion.querySelector(".select_ul")
 parentSelectBox.querySelectorAll(".option").forEach(elemen => {
     elemen.parentElement.addEventListener("click", function() {
         let optionClass = Array.from(elemen.classList) //Mengubah nama nama kelas di elemen ini menjadi Array
-        let tipe = optionClass.pop() //Mendapatkan tipe dengan mengambil nama kelas terakhir
-        filterKategori(tipe)
-        let result = paginationBuild(1, filteredData)
-        console.log(filteredData)
-        appendToContainer(result)
-        let pagination = document.querySelector(".pagination-container")
-        pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
+        filterValue = optionClass.pop() //Mendapatkan tipe dengan mengambil nama kelas terakhir
+        // filterKategori(tipe)
+        // let result = paginationBuild(1, filteredData)
+        // console.log(filteredData)
+        // appendToContainer(result)
+        // let pagination = document.querySelector(".pagination-container")
+        // pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
     })
 })
+
+
+toolsWebVersion.querySelector("button").addEventListener("click", function() {
+    let searchBarValue = toolsWebVersion.querySelector(".search-bar").value
+    let result = searchCollection(searchBarValue, [...globalData])
+    result = filterKategori(filterValue, result)
+    infoPagination.innerText = `${searchBarValue == ""? "": `${searchBarValue} dari `} ${filterValue == "all"? "semua kategori": `kategori ${filterValue}`}`
+    console.log(result)
+    appendToContainer(result)
+    pagination.replaceChild(initPageNumber(result.length), pagination.firstElementChild)
+})
+
+// searchBarWebsite.addEventListener("focusin", (event) => {
+//     let sibling = event.target.nextElementSibling
+//     event.target.parentElement.classList.remove("pr-4")
+//     sibling.classList.add("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
+//     sibling.addEventListener("click", () => {
+//         searchFilter(event.target.value)
+//         event.target.parentElement.classList.add("pr-4")
+//         sibling.classList.remove("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
+//     })
+// })
 
 
 document.querySelector(".open-nav").addEventListener("click", function() {
@@ -213,27 +247,19 @@ document.querySelector(".close-nav").addEventListener("click", function() {
 })
 
 
-let searchBarWebsite = document.querySelectorAll(".search-bar")[1]
-searchBarWebsite.addEventListener("focusin", (event) => {
-    let sibling = event.target.nextElementSibling
-    event.target.parentElement.classList.remove("pr-4")
-    sibling.classList.add("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
-    sibling.addEventListener("click", () => {
-        searchFilter(event.target.value)
-        event.target.parentElement.classList.add("pr-4")
-        sibling.classList.remove("w-1/3", "bg-hijau-keraton", "px-2", "text-white", "flex-row-reverse")
-    })
-})
 
-const search = (key) => {
-    filteredData = key == "" ? [...filteredData] : [...filteredData].filter(element => element.nama.toLowerCase().includes(key.toLowerCase()))
+
+const searchCollection = (key, data) => {
+    let result = key == ""? [...data] : [...data].filter(element => element.nama.toLowerCase().includes(key.toLowerCase()))
+    // filteredData = key == "" ? [...filteredData] : [...filteredData].filter(element => element.nama.toLowerCase().includes(key.toLowerCase()))
+    return result
 }
 
 // Function Search Collection
 const searchFilter = (key) => {
     // grid.classList.add("opacity-0")
     // document.querySelector(".loader-container").classList.add("hidden")
-    search(key); 
+    searchCollection(key); 
     appendToContainer([...filteredData])
     let pagination = document.querySelector(".pagination-container")
     pagination.replaceChild(initPageNumber(filteredData.length), pagination.firstElementChild)
