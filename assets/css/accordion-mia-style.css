@@ -18,3 +18,33 @@
     border-color: transparent transparent #000 #000;
     transform: rotate(-45deg);
 }
+
+.accordion:hover:before{
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    right: 2%;
+    width: 12px;
+    height: 12px;
+    border: 2px solid;
+    border-color: transparent transparent #fff #fff;
+    transform: rotate(-45deg);
+}
+
+/* .accordion + div{
+    background-color: white;
+} */
+
+.accordion:hover{
+    background-color: #0F2A12;
+}
+
+.accordion .key-note{
+    background-color: #0F2A12;
+    color: #fff;
+}
+
+.accordion:hover .key-note {
+    background-color: white;
+    color: #000;
+}
