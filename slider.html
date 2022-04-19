@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategori Koleksi | Kapustakan</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
+    <!-- Tailwind JIT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="slider.css">
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      'emas-keraton': '#D6A82E',
+                      'hijau-keraton': '#0F2A12'
+                  },
+              }
+          }
+      }
+  </script>
+</head>
+<body>
+  <header class="w-full h-16">
+    <nav class="h-full flex justify-between items-center mx-8 md:mx-12">
+        <!-- Back Navigation -->
+        <div>
+            <a href="./details-collection.html"><i class="fa-solid fa-arrow-left text-xl cursor-pointer"></i></a>
+        </div>
+        <!-- select -->
+        <div class="p-1 w-full md:w-1/4">
+          <div class="select_wrap h-full relative border">
+              <ul class="default_option bg-hijau-keraton relative cursor-pointer text-white">
+                  <li class="p-2">
+                      <div class="option">
+                          <p class="tracking-widest"> kridamardawa</p>
+                      </div>
+                  </li>
+              </ul>
+
+              <ul class="select_ul absolute left-0 top-10 border w-full hidden z-40 bg-white">
+                  <li class="p-2 hover:bg-hijau-keraton">
+                      <div class="option all">
+                          <p class="tracking-widest">kridamardawa</p>
+                      </div>
+                  </li>
+                  <li class="p-2 hover:bg-hijau-keraton">
+                      <div class="option hageng">
+                          <p class="tracking-widest">nitya</p>
+                      </div>
+                  </li>
+                  <li class="p-2 hover:bg-hijau-keraton">
+                      <div class="option pakurmatan">
+                          <p class="tracking-widest">widya</p>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+        <!-- Logo -->
+        <div>
+            <img src="./assets/img/logo.png" alt="logo-keraton" class="w-12 h-12">
+        </div>
+    </nav>
+</header>
+<main class="w-full h-full grow px-8 md:px-36 pb-8 md:pb-16 flex flex-col md:overflow-y-hidden">
+    <!-- Swiper -->
+    <div class="swiper-container gallery-thumbs">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">control1</div>
+        <div class="swiper-slide">control4</div>
+        <div class="swiper-slide">control5</div>
+        <div class="swiper-slide">control6</div>
+        <div class="swiper-slide">control7</div>
+        <div class="swiper-slide">control8</div>
+        <div class="swiper-slide">control9</div>
+        <div class="swiper-slide">control10</div>
+      </div>
+          <!-- Add Arrows -->
+      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-button-prev swiper-button-white"></div>
+    </div>
+    <div class="swiper-container gallery-top">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide items-center">
+          <img src="./assets/img/gamelan-panjang.jpg" alt="">
+          <button class="absolute bottom-11 w-72 bg-hijau-keraton content-center text-white rounded-full shadow-lg h-12">more collection</button>
+          <h2 class="absolute flex">GAMELAN</h2>
+        </div>
+        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
+      </div>
+    </div>
+</main>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script>
+        // Initialize Swiper
+        var galleryThumbs = new Swiper(".gallery-thumbs", {
+          slidesPerView: "auto",
+          spaceBetween: 10,
+          touchRatio: 0.2,
+          centeredSlides: true,
+          slideToClickedSlide: true,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+          }
+        });
+        var galleryTop = new Swiper(".gallery-top", {
+          slidesPerView: "auto",
+          freeMode: true
+        });
+        galleryTop.controller.control = galleryThumbs;
+        galleryThumbs.controller.control = galleryTop;
+
+      </script>
+</body>
+</html>
