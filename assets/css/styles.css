@@ -81,6 +81,25 @@ footer ul li.active {
     opacity: 0;
 }
 
+.swiper-slide .tulisan{
+    display: none;
+}
+
+.swiper-slide:hover .tulisan{
+    display: block;
+}
+
+.swiper-slide .gambar{
+    width: 100%;
+    transition: width 1s;
+}
+
+.swiper-slide:hover .gambar{
+    width: 85%;
+    transition: width 1s;
+}
+
+
 .tulisan {
     writing-mode: vertical-rl;
     opacity: 0;
