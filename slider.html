@@ -1,130 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Koleksi Gamelan Keraton">
+    <meta name="keywords" content="Gamelan Di Yogyakarta">
+    <meta name="author" content="Jeremia Daniel Silitonga">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kategori Koleksi | Kapustakan</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
     <!-- Tailwind JIT -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="slider.css">
+    <!-- Independent CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <!-- SelectBox CSS Mia Style -->
+    <link rel="stylesheet" href="/assets/css/select-mia-style.css">
+
+    <link rel="stylesheet" href="/assets/vendor/animate.min.css">
+
+    <link rel="stylesheet" href="/assets/vendor/swiper-bundle.min.css">
+
+    <!-- Tailwind Config -->
     <script>
-      tailwind.config = {
+        // const plugin = require('tailwindcss/plugin')
+        tailwind.config = {
           theme: {
-              extend: {
-                  colors: {
-                      'emas-keraton': '#D6A82E',
-                      'hijau-keraton': '#0F2A12'
-                  },
-              }
-          }
-      }
-  </script>
+            extend: {
+                colors: {
+                    'emas-keraton': '#D6A82E',
+                    'hijau-keraton': '#0F2A12',
+                },
+                boxShadow: {
+                    'mia-style': '0px 0px 29px 10px #D7A84C',
+                    'mia-style-kategori': '0px 4px 50px 6px rgba(24, 77, 71, 0.5)',
+                },
+            }
+          },
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities { .column-5{ width: 18.4%; margin-bottom: 2% } .column-4{ width: 22%; margin-bottom: 3%; } .column-3{ width: 31.33%; margin-bottom: 2%; } .column-2{ width: 47.5%; margin-bottom: 6%; } .column-1{ width: 100%; margin-bottom: 8%; } .picture-style{
+        width: theme('width.full'); height: theme('height.auto'); object-fit: cover; border-radius: theme('borderRadius.lg'); border-width: theme('borderWidth.4'); border-color: theme('colors.emas-keraton'); cursor: pointer; transition-timing-function:
+        cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 200ms; } .button-search{ transition: width 1s; }}
+    </style>
 </head>
-<body>
-  <header class="w-full h-16">
-    <nav class="h-full flex justify-between items-center mx-8 md:mx-12">
-        <!-- Back Navigation -->
-        <div>
-            <a href="./details-collection.html"><i class="fa-solid fa-arrow-left text-xl cursor-pointer"></i></a>
-        </div>
-        <!-- select -->
-        <div class="p-1 w-full md:w-1/4">
-          <div class="select_wrap h-full relative border">
-              <ul class="default_option bg-hijau-keraton relative cursor-pointer text-white">
-                  <li class="p-2">
-                      <div class="option">
-                          <p class="tracking-widest"> kridamardawa</p>
-                      </div>
-                  </li>
-              </ul>
 
-              <ul class="select_ul absolute left-0 top-10 border w-full hidden z-40 bg-white">
-                  <li class="p-2 hover:bg-hijau-keraton">
-                      <div class="option all">
-                          <p class="tracking-widest">kridamardawa</p>
-                      </div>
-                  </li>
-                  <li class="p-2 hover:bg-hijau-keraton">
-                      <div class="option hageng">
-                          <p class="tracking-widest">nitya</p>
-                      </div>
-                  </li>
-                  <li class="p-2 hover:bg-hijau-keraton">
-                      <div class="option pakurmatan">
-                          <p class="tracking-widest">widya</p>
-                      </div>
-                  </li>
-              </ul>
-          </div>
+<body class="w-full h-screen">
+  <header class="w-full">
+    <nav class="h-16 flex justify-between items-center mx-4 lg:mx-8">
+      <!-- Back Navigation -->
+      <div>
+        <a href="./details-collection.html"><i class="fa-solid fa-arrow-left text-2xl cursor-pointer"></i></a>
       </div>
-        <!-- Logo -->
-        <div>
-            <img src="./assets/img/logo.png" alt="logo-keraton" class="w-12 h-12">
+      <!-- select -->
+      <div class="p-1 w-full md:w-1/4">
+        <div class="select_wrap h-full relative border">
+          <ul class="default_option bg-hijau-keraton relative cursor-pointer text-white">
+            <li class="p-2">
+              <div class="option">
+                <p class="tracking-widest"> kridamardawa</p>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="select_ul absolute left-0 top-10 border w-full hidden z-40 bg-white">
+            <li class="p-2 hover:bg-hijau-keraton">
+              <div class="option all">
+                <p class="tracking-widest">kridamardawa</p>
+              </div>
+            </li>
+            <li class="p-2 hover:bg-hijau-keraton">
+              <div class="option hageng">
+                <p class="tracking-widest">nitya</p>
+              </div>
+            </li>
+            <li class="p-2 hover:bg-hijau-keraton">
+              <div class="option pakurmatan">
+                <p class="tracking-widest">widya</p>
+              </div>
+            </li>
+          </ul>
         </div>
+      </div>
+      <!-- Logo -->
+      <div>
+        <img src="/assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
+      </div>
     </nav>
-</header>
-<main class="w-full h-full grow px-8 md:px-36 pb-8 md:pb-16 flex flex-col md:overflow-y-hidden">
-    <!-- Swiper -->
-    <div class="swiper-container gallery-thumbs">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">control1</div>
-        <div class="swiper-slide">control4</div>
-        <div class="swiper-slide">control5</div>
-        <div class="swiper-slide">control6</div>
-        <div class="swiper-slide">control7</div>
-        <div class="swiper-slide">control8</div>
-        <div class="swiper-slide">control9</div>
-        <div class="swiper-slide">control10</div>
-      </div>
-          <!-- Add Arrows -->
-      <div class="swiper-button-next swiper-button-white"></div>
-      <div class="swiper-button-prev swiper-button-white"></div>
-    </div>
-    <div class="swiper-container gallery-top">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide items-center">
-          <img src="./assets/img/gamelan-panjang.jpg" alt="">
-          <button class="absolute bottom-11 w-72 bg-hijau-keraton content-center text-white rounded-full shadow-lg h-12">more collection</button>
-          <h2 class="absolute flex">GAMELAN</h2>
+  </header>
+  <main class="w-full h-[85vh]">
+    <section class="swiper-container h-[90%] w-full">
+      <div class="swiper h-full w-full">
+        <div class="swiper-wrapper h-full">
+          <div class="swiper-button-next hidden"></div>
+          <div class="swiper-button-prev hidden"></div>
+          <div class="swiper-slide w-[80vw] md:w-[35vw] flex">
+            <div class="tulisan w-[15%] h-full flex justify-end items-start">
+              <h1 class="text-6xl text-hijau-keraton font-bold rotate-180 uppercase">Gamelan</h1>
+            </div>
+            <div class="relative w-[85%] h-full">
+              <img src="/assets/img/gamelan-1.jpg" alt="" class="w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 p-4 w-full text-center">
+                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">DETAIL KOLEKSI</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide w-[80vw] md:w-[35vw] flex">
+            <div class="tulisan w-[15%] h-full flex justify-end items-start">
+              <h1 class="text-6xl text-hijau-keraton font-bold rotate-180 uppercase">Gamelan</h1>
+            </div>
+            <div class="relative w-[85%] h-full">
+              <img src="/assets/img/gamelan-1.jpg" alt="" class="w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 p-4 w-full text-center">
+                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">DETAIL KOLEKSI</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide w-[80vw] md:w-[35vw] flex">
+            <div class="tulisan w-[15%] h-full flex justify-end items-start">
+              <h1 class="text-6xl text-hijau-keraton font-bold rotate-180 uppercase">Gamelan</h1>
+            </div>
+            <div class="relative w-[85%] h-full">
+              <img src="/assets/img/gamelan-1.jpg" alt="" class="w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 p-4 w-full text-center">
+                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">DETAIL KOLEKSI</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./assets/img/gamelan-panjang.jpg" alt=""></div>
       </div>
+    </section>
+    <div class="h-[10%] flex gap-8 px-4">
+      <button class="prev py-4"><i class="fa-solid fa-arrow-left-long text-xl text-hijau-keraton"></i></button>
+      <button class="next py-4"><i class="fa-solid fa-arrow-right-long text-xl text-hijau-keraton"></i></button>
     </div>
-</main>
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script>
-        // Initialize Swiper
-        var galleryThumbs = new Swiper(".gallery-thumbs", {
-          slidesPerView: "auto",
-          spaceBetween: 10,
-          touchRatio: 0.2,
-          centeredSlides: true,
-          slideToClickedSlide: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
-          }
-        });
-        var galleryTop = new Swiper(".gallery-top", {
-          slidesPerView: "auto",
-          freeMode: true
-        });
-        galleryTop.controller.control = galleryThumbs;
-        galleryThumbs.controller.control = galleryTop;
-
-      </script>
+  </main>
+  <script src="/assets/js/select-box.js"></script>
+  <script src="/assets/vendor/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 124,
+      centeredSlides: true,
+      grabCursor: true,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    })
+    document.querySelector(".prev").addEventListener("click", () => {
+      document.querySelector(".swiper-button-prev").click()
+    })
+    document.querySelector(".next").addEventListener("click", () => {
+      document.querySelector(".swiper-button-next").click()
+    })
+  </script>
 </body>
 </html>

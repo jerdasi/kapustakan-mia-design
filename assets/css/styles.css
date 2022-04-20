@@ -76,3 +76,20 @@ footer ul li.active {
     border-radius: 100vh;
     border: 3px solid #f6f7ed;
 }
+
+.swiper-slide button{
+    opacity: 0;
+}
+
+.tulisan {
+    writing-mode: vertical-rl;
+    opacity: 0;
+}
+
+.swiper-slide-active:hover .tulisan{
+    opacity: 100;
+}
+
+.swiper-slide-active:hover button{
+    opacity: 100;
+}
