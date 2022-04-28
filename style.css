@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap');
+body {
+    font-family: 'Lora', serif;
+    background-color: #F8F8F8;
+}
+
+nav .navbar {
+    background: #F8F8F8;
+  }
+  
+  .nav-link{
+    color: #184D47
+  }
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+  }
+  .gallery__strip {
+    min-height: 100vh;
+  }
+  .gallery__strip__wrapper {
+    flex: 0 0 100%;
+    justify-content: flex-end;
+    background: #F8F8F8;
+    position: relative;
+  }
+  
+  @media (min-width: 500px) {
+    .gallery__strip__wrapper {
+      flex: 0 0 50%;
+    }
+  }
+  @media (min-width: 950px) {
+    .gallery {
+      height: 100vh;
+    }
+    .gallery__strip.one {
+      animation: 60s move-it ease alternate infinite 5s;
+      transform: translateY(2%);
+    }
+    .gallery__strip.three {
+      animation: 70s move-it ease alternate infinite 6s;
+      transform: translateY(2%);
+    }
+    .gallery__strip.two {
+      animation: 58s move-it-2 ease alternate infinite 5s;
+      transform: translateY(-50%);
+    }
+    .gallery__strip.four {
+      animation: 65s move-it-2 ease alternate infinite 5.5s;
+      transform: translateY(-50%);
+    }
+    .gallery__strip:hover {
+      animation-play-state: paused;
+    }
+    .gallery__strip__wrapper {
+      flex: 0 0 25%;
+    }
+  }
+  .photo {
+    position: relative;
+    text-align: right;
+    padding-bottom: 3rem;
+  }
+  .image img {
+    border-radius: 10px;
+    border-color: #184D47;
+    border-style: solid;
+    width: 60%;
+    transform: scale(.9);
+    transition: .3s;
+  }
+
+  .nama {
+    text-transform: uppercase;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #184D47;
+    margin-top: -20px;
+    transition: 0.4s ease-in-out 0.4s;
+    position: relative;
+    width: 100%;
+  }
+
+  .photo:hover .image img {
+    transform: translateX(0%);
+  }
+  .photo:hover .nama {
+    color: #184D47;
+  }
+  
+  @keyframes move-it {
+    0%, 90%, 100% {
+      transform: translateY(2%);
+    }
+    45% {
+      transform: translateY(-50%);
+    }
+  }
+  @keyframes move-it-2 {
+    0%, 90%, 100% {
+      transform: translateY(-50%);
+    }
+    45% {
+      transform: translateY(5%);
+    }
+  }
+
+  /* bagian bagian tulisan */
+span.icon{
+  position: absolute;
+  left: 3rem;
+  position: fixed;
+}
+
+span.icon{
+  position: absolute;
+  left: 3rem;
+  position: fixed;
+}
+
+div.dropdown{
+  position: absolute;
+  position: fixed;
+  top: 2rem ;
+}
+
+div.container{
+  position: absolute;
+  position: fixed;
+  top: 2rem ;
+}
+
+ul.nav{  
+  position: fixed;
+  top: 2rem ;
+}
+
+footer {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  font-weight: 500;
+}
+h1 {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+p {
+  margin: 0;
+}
+
+span.icon{
+  width: 50px;
+  fill: currentcolor;
+}
+
+ul.nav.justify-content-center {
+    justify-content: center!important;
+}
+
+/* figura */
+figure.card {
+  position: relative;
+  width: 300px;
+  height: 240px;
+  background-image: var(--image-src);
+  background-position: 50% 50%;
+  background-size: 125%;
+  overflow: hidden;
+  transform: scale(.9);
+  transition: .3s;
+  border-radius: 10px;
+  border-color: #D7A84C;
+  border-style: solid;
+  border-width: 4px;
+}
+
+figure.card:hover{
+  transform: translateX(0%);
+}
+
+figure.card:hover figcaption {
+  transform: translateY(0px);
+}
+figure.card-hvr figcaption {
+  bottom: 0;
+  transform: translateY(80px);
+}
+figure.card-hvr figcaption {
+  width: 100%;
+  height: 80px;
+  padding: 0 5px;
+}
+figure.card figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  background: #103122;
+  transition: transform 400ms ease;
+}
+figure.card figcaption .info {
+  color: #e2e2e2;
+  font-family: "Montserrat";
+}
+figure.card figcaption .info h3 {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+
+/* PAGE LIST KOLEKSI */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.6%;
+  background: #fff;
+  line-height: 1.4;
+  font-family: sans-serif;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 0;
+  max-width: 100vh;
+}
+
+.description{
+  width: 1000px;
+}
+.blog-card a {
+  color: inherit;
+}
+.blog-card a:hover {
+  color: #5ad67d;
+}
+.blog-card:hover .photo {
+  transform: scale(1.3) rotate(3deg);
+}
+.blog-card .meta {
+  position: relative;
+  z-index: 0;
+  height: 200px;
+}
+.blog-card .photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s;
+}
+.blog-card .description {
+  padding: 1rem;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+.blog-card .description h1,
+.blog-card .description h2 {
+  font-family: Poppins, sans-serif;
+}
+.blog-card .description h1 {
+  line-height: 1;
+  margin: 0;
+  font-size: 1.7rem;
+}
+.blog-card .description h2 {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #a2a2a2;
+  margin-top: 5px;
+}
+.blog-card .description .read-more {
+  text-align: right;
+}
+.blog-card .description .read-more a {
+  color: #5ad67d;
+  display: inline-block;
+  position: relative;
+}
+.blog-card .description .read-more a:after {
+  content: "";
+  font-family: FontAwesome;
+  margin-left: -10px;
+  opacity: 0;
+  vertical-align: middle;
+  transition: margin 0.3s, opacity 0.3s;
+}
+.blog-card .description .read-more a:hover:after {
+  margin-left: 5px;
+  opacity: 1;
+}
+.blog-card p {
+  position: relative;
+  margin: 1rem 0 0;
+}
+.blog-card p:first-of-type {
+  margin-top: 1.25rem;
+}
+.blog-card:hover .details {
+  left: 0%;
+}
+@media (min-width: 640px) {
+  .blog-card {
+    flex-direction: row;
+    max-width: 1600px;
+  }
+  .blog-card .meta {
+    flex-basis: 40%;
+    height: auto;
+  }
+  .blog-card .description {
+    flex-basis: 80%;
+  }
+  .blog-card .description:before {
+    
+    content: "";
+    background: #fff;
+    width: 30px;
+    position: absolute;
+    left: -10px;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+ 
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #F4F1D2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0F2A12;
+  border-radius: 100vh;
+  border: 3px solid #f6f7ed;
+}
