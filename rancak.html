@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rancak | Kapustakan</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+    <!-- Tailwind JIT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slider_bawah.css">
+    <link rel="stylesheet" href="./assets/css/accordion-mia-style.css">
+    <link rel="stylesheet" href="./assets/css/select-mia-style.css">
+    <link rel="stylesheet" href="assets/vendor/swiper-bundle.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'emas-keraton': '#D6A82E',
+                        'hijau-keraton': '#0F2A12'
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="w-full md:h-screen flex flex-col">
+    <header class="w-full h-16">
+        <nav class="h-full flex justify-between items-center mx-8 md:mx-12">
+            <!-- Back Navigation -->
+            <div>
+                <a href="./details-collection.html"><i class="fa-solid fa-arrow-left text-xl cursor-pointer"></i></a>
+            </div>
+            <!-- Logo -->
+            <div>
+                <img src="./assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
+            </div>
+        </nav>
+    </header>
+
+    <main class="w-full h-full grow px-8 md:px-36 pb-8 md:pb-16 flex flex-col md:overflow-y-hidden">
+        <div class="item-information flex items-center gap-4 mb-8 h-fit">
+            <div class="w-full md:w-fit md:max-w-2/4 p-1">
+                <h1 class="text-4xl md:text-6xl font-bold item-title leading-[4rem]">GONG</h1>
+            </div>
+            <!-- Select Box -->
+            <div class="p-1 w-full md:w-1/4">
+                <div class="select_wrap h-full relative border">
+                    <ul class="default_option bg-hijau-keraton border border-hijau-keraton relative cursor-pointer text-white">
+                        <li class="p-2">
+                            <div class="option">
+                                <p class="tracking-widest">rancak</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="select_ul absolute left-0 top-10 border w-full hidden z-40 bg-white">
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
+                            <div class="option all">
+                                <p class="tracking-widest" href="informasi.html">informasi umum</p>
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
+                            <div class="option hageng">
+                                <p class="tracking-widest" href="rancak.html">rancak</p>
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
+                            <div class="option pakurmatan">
+                                <p class="tracking-widest" href="sumber-bunyi.html">sumber bunyi</p>
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
+                            <div class="option pakurmatan">
+                                <p class="tracking-widest" href="#">elemen pendukung</p>
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
+                            <div class="option pakurmatan">
+                                <p class="tracking-widest" href="#">keunikan</p>
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-hijau-keraton hover:text-white cursor-pointer">
+                            <div class="option pakurmatan">
+                                <p class="tracking-widest" href="#">catatan</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Select Box -->
+        </div>
+        <div class="w-full h-full md:flex md:flex-row-reverse md:items-center md:gap-4 grow md:overflow-y-hidden">
+            <div class="w-full md:w-2/5 h-fit md:h-full ">
+                <!-- card left -->
+                <div class="product-imgs">
+                  <div class="img-display">
+                    <div class="img-showcase">
+                      <img src="assets/img/sider-bawah.png" alt="shoe image">
+                      <img src="assets/img/sider-bawah.png" alt="shoe image">
+                      <img src="assets/img/sider-bawah.png" alt="shoe image">
+                      <img src="assets/img/sider-bawah.png" alt="shoe image">
+                    </div>
+                  </div>
+                  <h1 class="text-sm md:text-sm font-bold item-title leading-[4rem]">Detail rancak:</h1>
+                  <!-- Slider main container -->
+                  <div class="img-select">
+                    <div class="img-item">
+                      <a href="#" data-id="1">
+                        <img src="assets/img/sider-bawah.png" alt="shoe image">
+                      </a>
+                    </div>
+                    <div class="img-item">
+                      <a href="#" data-id="2">
+                        <img src="assets/img/sider-bawah.png" alt="shoe image">
+                      </a>
+                    </div>
+                    <div class="img-item">
+                      <a href="#" data-id="3">
+                        <img src="assets/img/sider-bawah.png" alt="shoe image">
+                      </a>
+                    </div>
+                    <div class="img-item">
+                      <a href="#" data-id="4">
+                        <img src="assets/img/sider-bawah.png" alt="shoe image">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="w-full bg-white h-full flex p-4 border border-black">
+                <div class="my-4 md:my-0 cursor-pointer">
+                    <img src="assets/icon/pdf.svg" alt="pdf-icon" title="Download Dokumen">
+                </div>
+
+                <div class="accordion__wrapper w-full md:w-2/3 h-96 md:h-full max-h-full overflow-y-scroll p-2 grow">
+
+                    <div class="mb-2 bg-white ">
+                        <div class="w-full px-3.5 py-6 relative flex">
+                            <div class="grow flex justify-between">
+                                <div class="bentuk w-full">
+                                    <h1 class="font-bold">Bentuk</h1>
+                                    <p>Pencu</p>
+                                </div>
+                                <div class="bahan w-full">
+                                    <h1 class="font-bold">Bahan</h1>
+                                    <p>Perunggu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full px-3.5 py-6 relative flex">
+                            <div class="grow flex justify-between">
+                                <div class="bentuk w-full">
+                                    <h1 class="font-bold">Bentuk</h1>
+                                    <p>Pencu</p>
+                                </div>
+                                <div class="bahan w-full">
+                                    <h1 class="font-bold">Bahan</h1>
+                                    <p>Perunggu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full px-3.5 py-6 relative flex">
+                            <div class="grow flex justify-between">
+                                <div class="bentuk w-full">
+                                    <h1 class="font-bold">Bentuk</h1>
+                                    <p>Pencu</p>
+                                </div>
+                                <div class="bahan w-full">
+                                    <h1 class="font-bold">Bahan</h1>
+                                    <p>Perunggu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full px-3.5 py-6 relative flex">
+                            <div class="grow flex justify-between">
+                                <div class="bentuk w-full">
+                                    <h1 class="font-bold">Bentuk</h1>
+                                    <p>Pencu</p>
+                                </div>
+                                <div class="bahan w-full">
+                                    <h1 class="font-bold">Bahan</h1>
+                                    <p>Perunggu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full px-3.5 py-6 relative flex">
+                            <div class="grow flex justify-between">
+                                <div class="bentuk w-full">
+                                    <h1 class="font-bold">Bentuk</h1>
+                                    <p>Pencu</p>
+                                </div>
+                                <div class="bahan w-full">
+                                    <h1 class="font-bold">Bahan</h1>
+                                    <p>Perunggu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full px-3.5 py-6 relative flex">
+                            <div class="grow flex justify-between">
+                                <div class="bentuk w-full">
+                                    <h1 class="font-bold">Bentuk</h1>
+                                    <p>Pencu</p>
+                                </div>
+                                <div class="bahan w-full">
+                                    <h1 class="font-bold">Bahan</h1>
+                                    <p>Perunggu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Slider main container -->
+        
+    </main>
+    <script type="text/javascript">
+		const imgs = document.querySelectorAll(".img-select a");
+    const imgBtns = [...imgs];
+    let imgId = 1;
+
+    imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener("click", (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
+    });
+
+    function slideImage() {
+    const displayWidth = document.querySelector(".img-showcase img:first-child")
+        .clientWidth;
+
+    document.querySelector(".img-showcase").style.transform = `translateX(${
+        -(imgId - 1) * displayWidth
+    }px)`;
+    }
+
+    window.addEventListener("resize", slideImage);
+
+	</script>
+    <script src="./assets/js/select-box.js"></script>
+    <script src="./assets/js/accordion-mia-style.js"></script>
+</body>
+
+</html>
