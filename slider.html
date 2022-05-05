@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kategori Koleksi | Kapustakan</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
     <!-- Tailwind JIT -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -86,10 +86,7 @@
           </ul>
         </div>
       </div>
-      <!-- select -->
-      <!-- <div class="p-1 w-full md:w-1/4">
-        
-      </div> -->
+      
       <!-- Logo -->
       <div>
         <img src="/assets/img/logo-keraton.png" alt="logo-keraton" class="w-12 h-12">
@@ -97,11 +94,16 @@
     </nav>
   </header>
   <main class="w-full h-[85vh] mt-4">
+    <!-- Start Gallery Slider -->
     <section class="swiper-container h-[90%] w-full">
       <div class="swiper h-full w-full">
         <div class="swiper-wrapper h-full">
+          <!-- Start Button Slider -->
           <div class="swiper-button-next hidden"></div>
           <div class="swiper-button-prev hidden"></div>
+          <!-- End Button Slider -->
+
+          <!-- Item Gallery Start -->
           <div class="swiper-slide w-[80vw] md:w-[35vw] flex">
             <div class="tulisan w-[15%] h-full flex justify-end items-start">
               <h1 class="text-6xl text-hijau-keraton font-bold rotate-180 uppercase">Gamelan</h1>
@@ -109,7 +111,9 @@
             <div class="relative gambar h-full">
               <img src="/assets/img/gamelan-1.jpg" alt="" class="w-full h-full object-cover">
               <div class="absolute bottom-0 left-0 p-4 w-full text-center">
-                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">DETAIL KOLEKSI</button>
+                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">
+                  DETAIL KOLEKSI
+                </button>
               </div>
             </div>
           </div>
@@ -118,9 +122,11 @@
               <h1 class="text-6xl text-hijau-keraton font-bold rotate-180 uppercase">Gamelan</h1>
             </div>
             <div class="relative gambar h-full">
-              <img src="/assets/img/gamelan-1.jpg" alt="" class="w-full h-full object-cover">
+              <img src="/assets/img/gamelan-2.jpg" alt="" class="w-full h-full object-cover">
               <div class="absolute bottom-0 left-0 p-4 w-full text-center">
-                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">DETAIL KOLEKSI</button>
+                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">
+                  DETAIL KOLEKSI
+                </button>
               </div>
             </div>
           </div>
@@ -129,19 +135,27 @@
               <h1 class="text-6xl text-hijau-keraton font-bold rotate-180 uppercase">Gamelan</h1>
             </div>
             <div class="relative gambar h-full">
-              <img src="/assets/img/gamelan-1.jpg" alt="" class="w-full h-full object-cover">
+              <img src="/assets/img/gamelan-panjang.jpg" alt="" class="w-full h-full object-cover">
               <div class="absolute bottom-0 left-0 p-4 w-full text-center">
-                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">DETAIL KOLEKSI</button>
+                <button class="w-3/5 bg-hijau-keraton text-white p-2 rounded-lg tracking-widest text-lg">
+                  DETAIL KOLEKSI
+                </button>
               </div>
             </div>
           </div>
+          <!-- Item Gallery End -->
+          
         </div>
       </div>
     </section>
+    <!-- End Gallery Slider -->
+
+    <!-- Button Alternative Start -->
     <div class="h-[10%] flex gap-8 px-4">
       <button class="prev py-4"><i class="fa-solid fa-arrow-left-long text-xl text-hijau-keraton"></i></button>
       <button class="next py-4"><i class="fa-solid fa-arrow-right-long text-xl text-hijau-keraton"></i></button>
     </div>
+    <!-- Button Alternative End -->
   </main>
   <script src="/assets/js/select-box.js"></script>
   <script src="/assets/vendor/swiper-bundle.min.js"></script>

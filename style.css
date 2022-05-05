@@ -5,113 +5,120 @@ body {
 }
 
 nav .navbar {
-    background: #F8F8F8;
+  background: #F8F8F8;
+}
+
+.nav-link{
+  color: #184D47
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+}
+
+.gallery__strip {
+  min-height: 100vh;
+}
+
+.gallery__strip__wrapper {
+  flex: 0 0 100%;
+  justify-content: flex-end;
+  background: #F8F8F8;
+  position: relative;
+}
+
+@media (min-width: 500px) {
+  .gallery__strip__wrapper {
+    flex: 0 0 50%;
   }
-  
-  .nav-link{
-    color: #184D47
-  }
+}
+
+@media (min-width: 950px) {
   .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    overflow: hidden;
-    margin: auto;
+    height: 100vh;
   }
-  .gallery__strip {
-    min-height: 100vh;
+  .gallery__strip.one {
+    animation: 60s move-it ease alternate infinite 5s;
+    transform: translateY(2%);
+  }
+  .gallery__strip.three {
+    animation: 70s move-it ease alternate infinite 6s;
+    transform: translateY(2%);
+  }
+  .gallery__strip.two {
+    animation: 58s move-it-2 ease alternate infinite 5s;
+    transform: translateY(-50%);
+  }
+  .gallery__strip.four {
+    animation: 65s move-it-2 ease alternate infinite 5.5s;
+    transform: translateY(-50%);
+  }
+  .gallery__strip:hover {
+    animation-play-state: paused;
   }
   .gallery__strip__wrapper {
-    flex: 0 0 100%;
-    justify-content: flex-end;
-    background: #F8F8F8;
-    position: relative;
+    flex: 0 0 25%;
   }
-  
-  @media (min-width: 500px) {
-    .gallery__strip__wrapper {
-      flex: 0 0 50%;
-    }
-  }
-  @media (min-width: 950px) {
-    .gallery {
-      height: 100vh;
-    }
-    .gallery__strip.one {
-      animation: 60s move-it ease alternate infinite 5s;
-      transform: translateY(2%);
-    }
-    .gallery__strip.three {
-      animation: 70s move-it ease alternate infinite 6s;
-      transform: translateY(2%);
-    }
-    .gallery__strip.two {
-      animation: 58s move-it-2 ease alternate infinite 5s;
-      transform: translateY(-50%);
-    }
-    .gallery__strip.four {
-      animation: 65s move-it-2 ease alternate infinite 5.5s;
-      transform: translateY(-50%);
-    }
-    .gallery__strip:hover {
-      animation-play-state: paused;
-    }
-    .gallery__strip__wrapper {
-      flex: 0 0 25%;
-    }
-  }
-  .photo {
-    position: relative;
-    text-align: right;
-    padding-bottom: 3rem;
-  }
-  .image img {
-    border-radius: 10px;
-    border-color: #184D47;
-    border-style: solid;
-    width: 60%;
-    transform: scale(.9);
-    transition: .3s;
-  }
+}
 
-  .nama {
-    text-transform: uppercase;
-    font-size: 24px;
-    letter-spacing: 2px;
-    color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #184D47;
-    margin-top: -20px;
-    transition: 0.4s ease-in-out 0.4s;
-    position: relative;
-    width: 100%;
-  }
+.photo {
+  position: relative;
+  text-align: right;
+  padding-bottom: 3rem;
+}
 
-  .photo:hover .image img {
-    transform: translateX(0%);
-  }
-  .photo:hover .nama {
-    color: #184D47;
-  }
-  
-  @keyframes move-it {
-    0%, 90%, 100% {
-      transform: translateY(2%);
-    }
-    45% {
-      transform: translateY(-50%);
-    }
-  }
-  @keyframes move-it-2 {
-    0%, 90%, 100% {
-      transform: translateY(-50%);
-    }
-    45% {
-      transform: translateY(5%);
-    }
-  }
+.image img {
+  border-radius: 10px;
+  border-color: #184D47;
+  border-style: solid;
+  width: 60%;
+  transform: scale(.9);
+  transition: .3s;
+}
 
-  /* bagian bagian tulisan */
+.nama {
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #184D47;
+  margin-top: -20px;
+  transition: 0.4s ease-in-out 0.4s;
+  position: relative;
+  width: 100%;
+}
+
+.photo:hover .image img {
+  transform: translateX(0%);
+}
+.photo:hover .nama {
+  color: #184D47;
+}
+
+@keyframes move-it {
+  0%, 90%, 100% {
+    transform: translateY(2%);
+  }
+  45% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes move-it-2 {
+  0%, 90%, 100% {
+    transform: translateY(-50%);
+  }
+  45% {
+    transform: translateY(5%);
+  }
+}
+
+/* bagian bagian tulisan */
 span.icon{
   position: absolute;
   left: 3rem;

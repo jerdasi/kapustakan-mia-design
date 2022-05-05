@@ -85,11 +85,11 @@ footer ul li.active {
     display: none;
 }
 
-.swiper-slide:hover .tulisan{
+.swiper-slide-active:hover .tulisan{
     display: block;
 }
 
-.swiper-slide .gambar{
+/* .swiper-slide .gambar{
     width: 100%;
     transition: width 1s;
 }
@@ -97,7 +97,7 @@ footer ul li.active {
 .swiper-slide:hover .gambar{
     width: 85%;
     transition: width 1s;
-}
+} */
 
 
 .tulisan {
